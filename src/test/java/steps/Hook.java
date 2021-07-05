@@ -42,12 +42,12 @@ public class Hook extends BaseUtil{
         base.scenarioDef = base.features.createNode(scenario.getName());
         WebDriverManager.chromedriver().setup();
         //Setting system properties of ChromeDriver
-        System.setProperty("webdriver.chrome.driver", "/Users/macbookpro17/Documents/Automation/chromedriver");
-        base.Driver = new ChromeDriver();
+//        System.setProperty("webdriver.chrome.driver", "/Users/macbookpro17/Documents/Automation/chromedriver");
+//        base.Driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless");
+        base.Driver = new ChromeDriver(chromeOptions);
         base.Driver.manage().window().maximize();
-//        ChromeOptions chromeOptions = new ChromeOptions();
-//        chromeOptions.addArguments("--headless");
-//        base.Driver = new ChromeDriver(chromeOptions);
     }
 
 
