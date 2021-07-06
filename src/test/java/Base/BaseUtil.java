@@ -3,14 +3,13 @@ package Base;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-/**
- * Created by Karthik on 21/09/2019.
- */
 
 public class BaseUtil {
 
-    public static WebDriver Driver;
+    public static WebDriver driver;
+
 
     public ExtentReports extent;
 

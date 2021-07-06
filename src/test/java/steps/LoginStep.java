@@ -14,16 +14,13 @@ import pages.LoginPage;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Karthik on 31/01/2019.
- */
 public class LoginStep extends BaseUtil{
 
     private  BaseUtil base;
 
-    public LoginStep(BaseUtil base) {
-        this.base = base;
-    }
+//    public LoginStep(BaseUtil base) {
+//        this.base = base;
+//    }
 
     @DataTableType(replaceWithEmptyString = "[blank]")
     public User convert(Map<String, String> entry){
@@ -36,36 +33,32 @@ public class LoginStep extends BaseUtil{
 
     @Then("^I should see the userform page$")
     public void iShouldSeeTheUserformPage() throws Throwable {
-        scenarioDef.createNode(new GherkinKeyword("Then"), "I should see the userform page");
 
-        Assert.assertEquals("Its not displayed", base.Driver.findElement(By.id("Initial")).isDisplayed(), true);
+        Assert.assertEquals("Its not displayed", base.driver.findElement(By.id("Initial")).isDisplayed(), true);
     }
 
     @Given("^I navigate to the login page$")
     public void iNavigateToTheLoginPage() throws Throwable {
-        base.scenarioDef.createNode(new GherkinKeyword("Given"), "I navigate to the login page");
         System.out.println("Navigate Login Page");
-        base.Driver.navigate().to("http://www.executeautomation.com/demosite/Login.html");
+        base.driver.navigate().to("https://goplay.co.id/live");
     }
 
 
     @And("^I click login button$")
     public void iClickLoginButton() throws Throwable {
-        base.scenarioDef.createNode(new GherkinKeyword("And"), "I click login button");
-        LoginPage page = new LoginPage(base.Driver);
+        LoginPage page = new LoginPage(base.driver);
         page.ClickLogin();
     }
 
 
     @And("^I enter the following for Login$")
     public void iEnterTheFollowingForLogin(List<User> table) throws Throwable {
-        base.scenarioDef.createNode(new GherkinKeyword("And"), "I enter the following for login");
         //Create an ArrayList
         //List<User> users =  new ArrayList<User>();
         //Store all the users
         //List<User> users = table.asList(User.class);
 
-        LoginPage page = new LoginPage(base.Driver);
+        LoginPage page = new LoginPage(base.driver);
 
         page.Login(table.get(0).username, table.get(0).password);
 
@@ -75,15 +68,13 @@ public class LoginStep extends BaseUtil{
 
     @And("^I enter ([^\"]*) and ([^\"]*)$")
     public void iEnterUsernameAndPassword(String userName, String password) throws Throwable {
-        base.scenarioDef.createNode(new GherkinKeyword("And"), "I enter username and password");
         System.out.println("UserName is : " + userName);
         System.out.println("Password is : " + password);
     }
 
     @Then("^I should see the userform page wrongly$")
     public void iShouldSeeTheUserformPageWrongly() throws Throwable {
-        base.scenarioDef.createNode(new GherkinKeyword("Then"), "I should see  the useform page wrongly");
-        Assert.assertEquals("Its not displayed", base.Driver.findElement(By.id("sdfgdsfsd")).isDisplayed(), true);
+        Assert.assertEquals("Its not displayed", base.driver.findElement(By.id("sdfgdsfsd")).isDisplayed(), true);
     }
 
 

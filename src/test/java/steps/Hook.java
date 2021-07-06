@@ -18,9 +18,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import Base.ExtentReportUtil;
 
-/**
- * Created by Karthik on 31/01/2019.
- */
 
 public class Hook extends BaseUtil{
     ExtentReportUtil extentReportUtil = new ExtentReportUtil();
@@ -35,19 +32,13 @@ public class Hook extends BaseUtil{
     public void InitializeTest(Scenario scenario) {
         System.out.println("HOOK BEFORE");
 
-        extentReportUtil.ExtentReport();
-
-        //ToDo: Feature - Hard coding the feature name
-        features = extentReportUtil.extent.createTest(Feature.class, "LoginFeature");
-        base.scenarioDef = base.features.createNode(scenario.getName());
         WebDriverManager.chromedriver().setup();
-        //Setting system properties of ChromeDriver
-//        System.setProperty("webdriver.chrome.driver", "/Users/macbookpro17/Documents/Automation/chromedriver");
-//        base.Driver = new ChromeDriver();
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
-        base.Driver = new ChromeDriver(chromeOptions);
-        base.Driver.manage().window().maximize();
+        System.setProperty("webdriver.chrome.driver", "/Users/macbookpro17/Documents/Automation/chromedriver");
+        base.driver = new ChromeDriver();
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("--headless");
+//        base.Driver = new ChromeDriver(chromeOptions);
+        base.driver.manage().window().maximize();
     }
 
 
@@ -59,7 +50,7 @@ public class Hook extends BaseUtil{
             System.out.println(scenario.getName());
         }
         System.out.println("Closing the browser : MOCK");
-        base.Driver.quit();
+        //base.Driver.quit();
     }
 
     @BeforeStep

@@ -5,12 +5,16 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
-/**
- * Created by Karthik on 21/09/2019.
- */
 
-@CucumberOptions(features = {"src/test/java/features"} , plugin = {"json:target/cucumber.json", "pretty"},
-        glue = "steps")
+//@CucumberOptions(features = {"src/test/java/features/"} , plugin = {"json:target/cucumber.json", "pretty"},
+//        glue = "steps")
+
+@CucumberOptions(
+        features = {"src/test/java/features/"},
+        tags= "@FirstTimeLaunch",
+        glue= {"steps"},
+        plugin = { "pretty", "html:target/htmlreports" }
+)
 public class TestRunner extends AbstractTestNGCucumberTests {
 
 
