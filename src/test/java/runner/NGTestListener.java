@@ -1,18 +1,14 @@
 package runner;
 
-import Base.ExtentReportUtil;
-import com.aventstack.extentreports.gherkin.model.Feature;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.IOException;
 
 public class NGTestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-
         System.out.println("On test start");
     }
 
@@ -25,12 +21,6 @@ public class NGTestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         System.out.println("On test failure");
-
-//        try{
-//            extentReportUtil.ExtentReportScreenshot();
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
     }
 
     @Override
