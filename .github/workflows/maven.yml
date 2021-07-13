@@ -43,27 +43,6 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
-        script: ./gradlew test --info # running our test with info to check the results
+    - run: adb devices
   
-    - name: Install React Native CLI
-      run: |
-          npm install react-native-cli
-    - name: Start the Appium Server
-      run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
-    - name: Poll for Appium Server to Start
-      run: appium &
-#       run: |
-#           until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:4723/wd/hub/sessions); do
-#             sleep 5
-#           done
-    - name: Run Android Emulator
-      run: |
-          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;google_apis;x86_64'
-          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n test_device -k 'system-images;android-28;google_apis;x86_64' --force
-          echo $ANDROID_HOME/emulator/emulator -list-avds
-          echo "Starting emulator"
-          nohup $ANDROID_HOME/emulator/emulator -avd test_device -no-snapshot > /dev/null 2>&1 &
-          $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
-          $ANDROID_HOME/platform-tools/adb devices
-          echo "Emulator started"  
-
+   
