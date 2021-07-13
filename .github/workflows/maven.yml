@@ -36,7 +36,6 @@ jobs:
       with:
           api-level: 29
           script: ./gradlew connectedCheck
-      run: echo "Emulator started" 
     - name: Run Android Emulator
       run: |
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;google_apis;x86_64'
