@@ -23,8 +23,7 @@ jobs:
       uses: actions/setup-node@v2.2.0
       with:
         node-version: 12.16.3
-            # Run Android Emulator
-      - name: Run Android Emulator
+    - name: Run Android Emulator
         run: |
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;google_apis;x86_64'
           echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n test_device -k 'system-images;android-28;google_apis;x86_64' --force
@@ -34,8 +33,7 @@ jobs:
           $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
           $ANDROID_HOME/platform-tools/adb devices
           echo "Emulator started"  
-          
-            # Start the Appium Server
+        # Start the Appium Server
       - name: Start the Appium Server
         run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
       # Poll for Appium Server to Start
