@@ -23,8 +23,7 @@ jobs:
     - uses: malinskiy/action-android/install-sdk@release/0.1.2
     - run: sdkmanager platform-tools
     - run: adb devices
-  # Verify $ANDROID_HOME is properly set for later Gradle commands.
-  - run: echo $ANDROID_HOME    
+    - run: echo $ANDROID_HOME    
     - name: Setup Node.js environment
       uses: actions/setup-node@v2.2.0
       with:
