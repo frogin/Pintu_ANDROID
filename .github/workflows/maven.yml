@@ -24,15 +24,15 @@ jobs:
       with:
         node-version: 10.17.0
     - name: Clean Packages 
-        run: |
+      run: |
           rm -rf node_modules
           npm cache clean --force
           rm -rf package-lock.json
     - name: Install React Native CLI
-        run: |
+      run: |
           npm install react-native-cli
     - name: Run Android Emulator
-        run: |
+      run: |
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;google_apis;x86_64'
           echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n test_device -k 'system-images;android-28;google_apis;x86_64' --force
           echo $ANDROID_HOME/emulator/emulator -list-avds
@@ -41,10 +41,10 @@ jobs:
           $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
           $ANDROID_HOME/platform-tools/adb devices
           echo "Emulator started"  
-      - name: Start the Appium Server
-        run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
-      - name: Poll for Appium Server to Start
-        run: |
+    - name: Start the Appium Server
+      run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
+    - name: Poll for Appium Server to Start
+      run: |
           until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:4723/wd/hub/sessions); do
             sleep 5
           done
