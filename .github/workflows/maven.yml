@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -25,18 +25,13 @@ jobs:
         node-version: 12.16.3
     - name: Clean Packages 
       run: |
-          rm -rf node_modules
-          npm cache clean --force
-          rm -rf package-lock.json
-    - name: Install React Native CLI
-      run: |
-          npm install react-native-cli
-    - name: Appium Server Action
-      uses: moatazeldebsy/Appium-Server-GitHub-Action@V1.0.5
+          npm install -g appium
+          appium -v
+          appium
     - name: run tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
-          api-level: 29
+          api-level: 30
           script: ./gradlew connectedCheck
     - name: Build with Maven
       run: mvn clean verify -Dtestng.dtd.http=true
