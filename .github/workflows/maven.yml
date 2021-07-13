@@ -31,6 +31,14 @@ jobs:
     - name: Install React Native CLI
       run: |
           npm install react-native-cli
+    - name: run tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+          api-level: 29
+          arch: x86_64
+          profile: Nexus 6
+          script: ./gradlew connectedCheck
+      run: echo "Emulator started" 
     - name: Run Android Emulator
       run: |
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;google_apis;x86_64'
