@@ -24,10 +24,14 @@ jobs:
       with:
         node-version: 12.16.3
     - name: Clean Packages 
+#       run: |
+#           rm -rf node_modules
+#           npm cache clean --force
+#           rm -rf package-lock.json
       run: |
-          rm -rf node_modules
-          npm cache clean --force
-          rm -rf package-lock.json
+          npm install -g appium
+          appium -v
+          appium &
     - name: Install React Native CLI
       run: |
           npm install react-native-cli
