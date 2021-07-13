@@ -31,6 +31,8 @@ jobs:
     - name: Install React Native CLI
       run: |
           npm install react-native-cli
+    - name: Appium Server Action
+      uses: moatazeldebsy/Appium-Server-GitHub-Action@V1.0.5
     - name: Run Android Emulator
       run: |
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;google_apis;x86_64'
