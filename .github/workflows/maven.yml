@@ -11,27 +11,40 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macOS-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 11
+    - name: Set up JDK 9
       uses: actions/setup-java@v1
       with:
-        java-version: 10
+        java-version: 9
     - name: Setup Node.js environment
       uses: actions/setup-node@v2.2.0
       with:
-        node-version: 12.16.3
-    - name: Install appium 
-      run: npm install -g appium
-    - name: Run Appium
-      run: appium
-    - name: Open Emulator
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-          api-level: 30
-          script: ./gradlew connectedCheck
-    - name: Build with Maven
-      run: mvn clean verify -Dtestng.dtd.http=true
-      
+        node-version: 10.17.0
+    - name: Clean Packages 
+        run: |
+          rm -rf node_modules
+          npm cache clean --force
+          rm -rf package-lock.json
+    - name: Install React Native CLI
+        run: |
+          npm install react-native-cli
+    - name: Run Android Emulator
+        run: |
+          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;google_apis;x86_64'
+          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n test_device -k 'system-images;android-28;google_apis;x86_64' --force
+          echo $ANDROID_HOME/emulator/emulator -list-avds
+          echo "Starting emulator"
+          nohup $ANDROID_HOME/emulator/emulator -avd test_device -no-snapshot > /dev/null 2>&1 &
+          $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
+          $ANDROID_HOME/platform-tools/adb devices
+          echo "Emulator started"  
+      - name: Start the Appium Server
+        run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
+      - name: Poll for Appium Server to Start
+        run: |
+          until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:4723/wd/hub/sessions); do
+            sleep 5
+          done
