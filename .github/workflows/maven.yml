@@ -21,9 +21,9 @@ jobs:
         java-version: 11
       # Setup Node JS - 10.17.0
     - name: Set up Node JS 10.17.0
-        uses: actions/setup-node@v1
+         uses: actions/setup-node@v2.2.0
         with:
-          node-version: '10.17.0'    
+          node-version: 12.16.3
             # Run Android Emulator
       - name: Run Android Emulator
         run: |
