@@ -23,12 +23,11 @@ jobs:
       uses: actions/setup-node@v2.2.0
       with:
         node-version: 12.16.3
-    - name: Clean Packages 
-      run: |
-          npm install -g appium
-          appium -v
-          appium
-    - name: run tests
+    - name: Install appium 
+      run: npm install -g appium
+    - name: Run Appium
+      run: appium
+    - name: Open Emulator
       uses: reactivecircus/android-emulator-runner@v2
       with:
           api-level: 30
