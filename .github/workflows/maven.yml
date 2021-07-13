@@ -33,9 +33,9 @@ jobs:
           npm install react-native-cli
     - name: Appium Server Action
       uses: moatazeldebsy/Appium-Server-GitHub-Action@V1.0.5
-      - name: run tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
+    - name: run tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
           api-level: 29
           script: ./gradlew connectedCheck
     - name: Build with Maven
