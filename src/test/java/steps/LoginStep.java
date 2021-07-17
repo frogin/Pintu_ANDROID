@@ -40,7 +40,7 @@ public class LoginStep extends BaseUtil {
     }
 
     @And("I input wrong phone number")
-    public void iInputWrongPhoneNumber() throws InterruptedException {
+    public void iInputWrongPhoneNumber() throws Throwable {
         LoginPage page = new LoginPage(driver);
         page.InputWrongNumber();
     }
@@ -50,6 +50,8 @@ public class LoginStep extends BaseUtil {
         LoginPage page = new LoginPage(driver);
         page.CheckModalRegister();
     }
+
+
 
     public class User {
         public String username;

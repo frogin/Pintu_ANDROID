@@ -85,7 +85,7 @@ public class ElementAction extends BaseUtil {
     }
 
     public static void waitForEl(By byEl){
-        new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(byEl));
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(byEl));
     }
 
 }

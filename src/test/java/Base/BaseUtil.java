@@ -10,6 +10,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,8 +27,8 @@ public class BaseUtil {
     public static DesiredCapabilities capabilities;
     public static AndroidDriver<MobileElement> driver;
     public static TouchAction touchAction;
-    public static WebDriver Driver1;
     public WebDriverWait wait;
+
 
     public void setupAppium(String urlServer) throws MalformedURLException, IOException {
 
@@ -37,6 +38,7 @@ public class BaseUtil {
         configFile.load(BaseUtil.class.getClassLoader().getResourceAsStream("config.properties"));
         String apk_Path = System.getProperty("user.dir")
                 + configFile.getProperty("androidAppLocation");
+        DesiredCapabilities caps = new DesiredCapabilities();
         capabilities = new DesiredCapabilities();
         try {
             url = new URL(configFile.getProperty(urlServer));
@@ -55,20 +57,12 @@ public class BaseUtil {
 
                 /* Use Cloud Server */
                 case "cloudURL":
-                    capabilities.setCapability("pCloudy_Username", configFile.getProperty("pCloudyUsername"));
-                    capabilities.setCapability("pCloudy_ApiKey", configFile.getProperty("pCloudyApiKey"));
-                    capabilities.setCapability("pCloudy_DurationInMinutes", 30);
-                    capabilities.setCapability("newCommandTimeout", 600);
-                    capabilities.setCapability("launchTimeout", 90000);
-                    capabilities.setCapability("pCloudy_DeviceFullName", configFile.getProperty("samsungS9"));
-                    capabilities.setCapability("platformVersion", configFile.getProperty("platformVersion"));
-                    capabilities.setCapability("platformName", configFile.getProperty("androidPlatformName"));
-                    capabilities.setCapability("automationName", "uiautomator2");
-                    capabilities.setCapability("pCloudy_ApplicationName", "switch.apk");
-                    capabilities.setCapability("appPackage", configFile.getProperty("androidAppPackage"));
-                    capabilities.setCapability("appActivity", configFile.getProperty("androidAppActivity"));
-                    capabilities.setCapability("pCloudy_WildNet", "false");
-                    capabilities.setCapability("autoGrantPermissions", true);
+                    caps.setCapability("device", "Samsung Galaxy S21");
+                    caps.setCapability("os_version", "11");
+                    caps.setCapability("project", "Alohaa");
+                    caps.setCapability("build", "KUYKUY");
+                    caps.setCapability("name", "Bstack-[Java] Sample Test");
+                    caps.setCapability("app", "bs://cfc873dd89d407f2e1a2db55a76ff308823c9fcc");
                     break;
             }
         } catch (IOException e) {
@@ -80,7 +74,7 @@ public class BaseUtil {
         driver.hideKeyboard();
         wait = new WebDriverWait(driver, 15);
 
-        //Populating the properties file
+//        //Populating the properties file
         configFile.setProperty("Device Name", "udid");
         configFile.setProperty("Android Version", "androidPlatformVersion");
         File file = new File("target\\allure-results");
@@ -90,10 +84,12 @@ public class BaseUtil {
     }
 
     public void closeApp() {
+
         driver.closeApp();
     }
 
     public void uninstallApp() {
+
         driver.removeApp(BaseData.ApplicationInformation.ANDROID_APPLICATION_PACKAGE);
     }
 }

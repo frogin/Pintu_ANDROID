@@ -3,4 +3,4 @@ Feature: Homepage Feature
 
   Scenario: Checking homepage element
     Given I navigate to the Home page
-    And I check homepage element
+#    And I check homepage element

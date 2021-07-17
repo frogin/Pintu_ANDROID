@@ -1,6 +1,7 @@
 package steps;
 
 import Base.BaseUtil;
+import Base.RestAssuredExtension;
 import io.cucumber.java.*;
 import java.io.IOException;
 
@@ -23,6 +24,7 @@ public class Hook extends BaseUtil{
     public void closeAppSwitch() {
         System.out.println("HOOK AFTER");
         driver.resetApp();
+//        driver.closeApp();
     }
 
 
