@@ -3,4 +3,8 @@ Feature: Homepage Feature
 
   Scenario: Checking homepage element
     Given I navigate to the Home page
-#    And I check homepage element
+    And I check homepage element
+
+  Scenario: Checking homepage element2
+    Given I navigate to the Home page
+    And I check homepage element

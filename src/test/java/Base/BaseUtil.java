@@ -51,8 +51,10 @@ public class BaseUtil {
                     capabilities.setCapability(AndroidCapabilityType.APP_PACKAGE, configFile.getProperty("androidAppPackage"));
                     capabilities.setCapability(AndroidCapabilityType.APP_ACTIVITY, configFile.getProperty("androidAppActivity"));
                     capabilities.setCapability(MobileCapabilityType.NO_RESET, "true");
+                    capabilities.setCapability(MobileCapabilityType.FULL_RESET, "false");
                     capabilities.setCapability(AndroidCapabilityType.AUTO_GRANT_PERMISSION, "true");
                     capabilities.setCapability(MobileCapabilityType.APP, apk_Path);
+
                     break;
 
                 /* Use Cloud Server */

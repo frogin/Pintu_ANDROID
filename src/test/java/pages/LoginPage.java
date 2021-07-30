@@ -34,7 +34,7 @@ public class LoginPage extends BaseUtil {
     By by_btnDownload = By.id("com.goplay.android:id/button_register");
 
     public void CheckElementLoginPage() throws InterruptedException {
-        action.waitForEl(by_inputNumber);
+        action.waitUntiElementPresent(by_inputNumber);
         inputPhoneNumber.isDisplayed();
         btnContinue.isDisplayed();;
     }
@@ -47,7 +47,7 @@ public class LoginPage extends BaseUtil {
     }
 
     public void CheckModalRegister() throws InterruptedException {
-        action.waitForEl(by_btnDownload);
+        action.waitUntiElementPresent(by_btnDownload);
         action.checkTextCountains("Let’s get you a Gojek account");
         btnDownload.isDisplayed();
         btnCloseDialog.click();

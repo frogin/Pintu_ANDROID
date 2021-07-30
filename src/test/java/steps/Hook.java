@@ -23,8 +23,9 @@ public class Hook extends BaseUtil{
     @After
     public void closeAppSwitch() {
         System.out.println("HOOK AFTER");
-        driver.resetApp();
-//        driver.closeApp();
+  //      driver.resetApp();
+        driver.closeApp();
+        driver.quit();
     }
 
 

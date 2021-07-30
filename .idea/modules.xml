@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GoPlay_API.iml" filepath="$PROJECT_DIR$/GoPlay_API.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GoPlay_ANDROID.iml" filepath="$PROJECT_DIR$/GoPlay_ANDROID.iml" />
     </modules>
   </component>
 </project>

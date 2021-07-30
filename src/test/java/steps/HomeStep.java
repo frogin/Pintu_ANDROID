@@ -26,6 +26,7 @@ public class HomeStep extends BaseUtil {
     @And("I check homepage element")
     public void iCheckHomepageElement() throws InterruptedException {
         HomePage page = new HomePage(driver);
-        page.CheckElementHomepage();
+        page.banner();
+        //page.CheckElementHomepage();
     }
 }
