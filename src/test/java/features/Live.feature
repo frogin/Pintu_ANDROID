@@ -23,8 +23,7 @@ Feature: Live Feature
   @Live
   Scenario: User play with another live recommendation
     Given I open live event
-    And   I open another live recommendation
-    Then `I ended live should go back to homepage
+    Then   I open another live recommendation
 
   @Live
   Scenario: User tap Hearts and number supposed to be Increase
@@ -43,3 +42,35 @@ Feature: Live Feature
     Given I open live event
     And   I send shout to performer
     Then `I ended live should go back to homepage
+
+  @Live
+  Scenario: User send gift to performer
+    Given I open live event
+    And   I send gift to performer
+    Then `I ended live should go back to homepage
+
+  @Live
+  Scenario: User playing with group public/private
+    Given I open Today live event
+    Then  I check group functionality
+
+  @Live
+  Scenario: User check marketing event from Loket
+    Given I open Marketing event
+    And   I verify all element on marketing page
+
+  @Live
+  Scenario: User check reminder functionality
+    Given I Verify reminder function in All section
+
+  @Live
+  Scenario: User check Today live event
+    Given I open Today live event
+    And   I verify all element on today live event page
+    And   I open another live recommendation
+
+  @Live
+  Scenario: User play live event video from recorded
+    Given I open top watched event
+    Then  I verify all element on recorded event
+

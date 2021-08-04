@@ -14,6 +14,7 @@ import org.testng.Assert;
 
 public class LivePage extends BaseUtil {
 
+
     ElementAction action = new ElementAction();
 
     public LivePage(AndroidDriver<MobileElement> driver) {
@@ -24,14 +25,20 @@ public class LivePage extends BaseUtil {
     public MobileElement btnLogin;
 
     @AndroidFindBy(id = "com.goplay.android:id/live_card")
-    public MobileElement bannerLive;
-    String liveBanner="com.goplay.android:id/feed_item_image";
+    public static MobileElement bannerLive;
+    public static String liveBanner="com.goplay.android:id/feed_item_image";
+
+    @AndroidFindBy(id = "com.goplay.android:id/feed_poster_with_badge")
+    public MobileElement bannerRecordedShow;
 
     @AndroidFindBy(id = "android:id/button_once")
-    public MobileElement btnOnce;
+    public static MobileElement btnOnce;
 
     @AndroidFindBy(id = "com.goplay.android:id/tv_display_description_text")
     public MobileElement txtEventDetail;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Back to chat']")
+    public MobileElement txtBackToChat;
 
     @AndroidFindBy(id = "com.goplay.android:id/btn_close")
     public MobileElement btnCloseLive;
@@ -54,11 +61,10 @@ public class LivePage extends BaseUtil {
 
     @AndroidFindBy(id = "com.goplay.android:id/event_info_container")
     public MobileElement txtEventInfo;
-    String EventInfo="com.goplay.android:id/event_info_container";
+    public static String EventInfo="com.goplay.android:id/event_info_container";
 
     @AndroidFindBy(id = "com.goplay.android:id/lay_viewer")
     public MobileElement txtLiveInfo;
-    String LiveInfo="com.goplay.android:id/lay_viewer";
 
     @AndroidFindBy(id = "com.goplay.android:id/btn_action_orientation")
     public MobileElement btnRotate;
@@ -70,7 +76,7 @@ public class LivePage extends BaseUtil {
     @AndroidFindBy(id = "com.goplay.android:id/btn_action_share")
     public MobileElement btnShare;
 
-    @AndroidFindBy(id = "com.goplay.android:id/btn_action_gift_badge_wrapper")
+    @AndroidFindBy(id = "com.goplay.android:id/btn_action_gift")
     public MobileElement btnGift;
 
     @AndroidFindBy(id = "com.goplay.android:id/btn_action_page_switcher")
@@ -95,12 +101,12 @@ public class LivePage extends BaseUtil {
     public MobileElement txtLikesNumber;
 
     @AndroidFindBy(id = "com.goplay.android:id/anchor_button")
-    public MobileElement btnSeeAll;
+    public static MobileElement btnSeeAll;
 
     @AndroidFindBy(id = "com.goplay.android:id/marketing_banner_root")
     public MobileElement bannerMarketing;
 
-    @AndroidFindBy(id = "com.goplay.android:id/live_reminder_icon_container")
+    @AndroidFindBy(id = "com.goplay.android:id/live_reminder_icon")
     public MobileElement btnReminder;
 
     @AndroidFindBy(id = "com.goplay.android:id/cv_feed_item_landscape_parent")
@@ -128,12 +134,109 @@ public class LivePage extends BaseUtil {
             "androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.FrameLayout")
     public MobileElement bannerRecommendation3;
 
+    @AndroidFindBy(id = "com.goplay.android:id/schedule_title")
+    public MobileElement txtEventTitle;
+    String EventTitle="com.goplay.android:id/schedule_title";
+
+    @AndroidFindBy(id = "com.goplay.android:id/event_details_page_share_btn_toolbar")
+    public MobileElement btnShareMarketing;
+
+    @AndroidFindBy(id = "com.goplay.android:id/btn_add_reminder")
+    public MobileElement btnRemindMeMarketing;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout" +
+            "/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/" +
+            "android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[5]/" +
+            "android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")
+    public MobileElement btnMore;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Copy Link']")
+    public MobileElement txtCopyLink;
+
+    @AndroidFindBy(id = "com.goplay.android:id/tokens_info")
+    public MobileElement txtTokenInfo;
+
+    @AndroidFindBy(id = "com.goplay.android:id/balance_field")
+    public MobileElement txtTokenBalance;
+
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc='All']")
+    public MobileElement txtGifAll;
+
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc='Shout']")
+    public MobileElement txtGiftShout;
+
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc='Food']")
+    public MobileElement txtGiftFood;
+
+    @AndroidFindBy(id = "com.goplay.android:id/tv_text")
+    public MobileElement btnNext;
+
+    @AndroidFindBy(id = "com.goplay.android:id/gift_item_price")
+    public MobileElement txTokenPrice;
+
+    @AndroidFindBy(id = "com.goplay.android:id/btn_gift_details_back")
+    public MobileElement btnGiftBack;
+
+    @AndroidFindBy(id = "com.goplay.android:id/dialog_card_dismiss")
+    public MobileElement btnDismissCardGift;
+
+    @AndroidFindBy(id = "com.goplay.android:id/btn_join")
+    public MobileElement btnJoinGroup;
+
+    @AndroidFindBy(id = "com.goplay.android:id/btn_create")
+    public MobileElement btnCreateGroup;
+
+    @AndroidFindBy(id = "com.goplay.android:id/et_room_name")
+    public MobileElement inputGroupName;
+
+    @AndroidFindBy(id = "com.goplay.android:id/btn_ok")
+    public MobileElement btnSubmitJoinGroup;
+
+    @AndroidFindBy(id = "com.goplay.android:id/btn_close")
+    public MobileElement btnCloseGroup;
+
+    @AndroidFindBy(id = "com.goplay.android:id/btnPlay")
+    public static MobileElement btnPlayNow;
+
+    @AndroidFindBy(id = "com.goplay.android:id/toolbar_title")
+    public MobileElement titleRecordedEvent;
+    String RecordedEvent= "com.goplay.android:id/toolbar_title";
+
+    @AndroidFindBy(id = "com.goplay.android:id/bc_video_view")
+    public MobileElement frameVideoPlay;
+
+
+
+
     public void openLiveEvent() {
         action.waitUntiElementPresent(By.id(liveBanner));
         action.scroToElement("Live Now");
         bannerLive.click();
         btnOnce.click();
         action.waitUntiElementPresent(By.id(EventInfo));
+    }
+
+    public void openMarketingEvent() {
+        action.waitUntiElementPresent(By.id(liveBanner));
+        action.scroToElement("Check this out!");
+        bannerMarketing.click();
+        btnOnce.click();
+        action.waitUntiElementPresent(By.id(EventTitle));
+    }
+
+    public void openTodayLiveEvent() {
+        action.waitUntiElementPresent(By.id(liveBanner));
+        action.scroToElement("Check this out!");
+        bannerLive.click();
+        btnOnce.click();
+        action.waitUntiElementPresent(By.id(EventTitle));
+    }
+
+    public void openTopWatchedShow() {
+        action.waitUntiElementPresent(By.id(liveBanner));
+        action.scroToElement("Top Watched Shows");
+        btnSeeAll.click();
+        action.waitUntiElementPresent(By.id(RecordedEvent));
     }
 
     public void checkEventDetails() throws InterruptedException {
@@ -157,6 +260,7 @@ public class LivePage extends BaseUtil {
 
     public void checkCleanModeScren() throws InterruptedException {
         action.waitUntiElementPresent(By.id(EventInfo));
+        Thread.sleep(2000);
         System.out.println("MASUK IF ELSE");
         if (driver.getPageSource().contains(Rotate)){
             System.out.println("FOUND");
@@ -211,29 +315,25 @@ public class LivePage extends BaseUtil {
     }
 
     public void checkRecommendation() throws InterruptedException{
-        action.waitUntiElementPresent(By.id(EventInfo));
         action.swipeByElements(btnGuideTooltip,txtGiftHistory);
         bannerRecommendation.click();
-        Thread.sleep(2000);
-        txtEventInfo.isDisplayed();
         txtGiftHistory.isDisplayed();
+        txtLeaderboard.isDisplayed();
         action.swipeByElements(btnGuideTooltip,txtGiftHistory);
-        Thread.sleep(2000);
         bannerRecommendation3.click();
-        txtEventInfo.isDisplayed();
         txtGiftHistory.isDisplayed();
+        txtLeaderboard.isDisplayed();
         action.swipeByElements(btnGuideTooltip,txtGiftHistory);
-        Thread.sleep(2000);
         bannerRecommendation2.click();
-        txtEventInfo.isDisplayed();
         txtGiftHistory.isDisplayed();
+        txtLeaderboard.isDisplayed();
     }
 
     public void checkHeartsNumber(){
         String oldNumber= txtLikesNumber.getText();
         txtLikesNumber.click();
         String newNumber= txtLikesNumber.getText();
-        Assert.assertNotEquals(oldNumber,newNumber);
+//        Assert.assertNotEquals(oldNumber,newNumber);
     }
 
     public void checkSendMessage()throws InterruptedException{
@@ -242,16 +342,198 @@ public class LivePage extends BaseUtil {
         btnSendMessage.click();
         Thread.sleep(1500);
         action.checkTextCountains("Keren");
+        action.androidBack();
     }
 
     public void checkSendShout()throws InterruptedException{
         btnShout.click();
         inputChat.sendKeys("Keren");
         btnSendMessage.click();
-        Thread.sleep(1500);
+        Thread.sleep(1000);
         action.checkTextCountains("Shout sent");
     }
 
+    public void checkSendGift()throws InterruptedException{
+        btnGift.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Choose a virtual gift");
+        action.checkTextCountains("All");
+        action.checkTextCountains("Shout");
+        action.checkTextCountains("Food");
+        action.checkTextCountains("Next");
+        String tokenInfo= txtTokenInfo.getText();
+        txtTokenInfo.click();
+        String tokenBalance= txtTokenBalance.getText();
+        Assert.assertEquals(tokenInfo,tokenBalance);
+        action.androidBack();
+        String tokenLitPrice= txTokenPrice.getText();
+        action.checkTextCountains("You're lit");
+        btnNext.click();
+        String tokenLitPrice2= txTokenPrice.getText();
+        Assert.assertEquals(tokenLitPrice,tokenLitPrice2);
+        action.checkTextCountains("Add a personal note?");
+        action.checkTextCountains("Good words to go with the gift...");
+        btnGiftBack.click();
+        txtGiftShout.click();
+        String tokenLovingItPrice= txTokenPrice.getText();
+        action.checkTextCountains("Loving it");
+        btnNext.click();
+        String tokenLovingItPrice2= txTokenPrice.getText();
+        Assert.assertEquals(tokenLovingItPrice,tokenLovingItPrice2);
+        action.checkTextCountains("Add a personal note?");
+        action.checkTextCountains("Good words to go with the gift...");
+        btnGiftBack.click();
+        txtGiftFood.click();
+        String tokenCilokPrice= txTokenPrice.getText();
+        action.checkTextCountains("Cilok");
+        btnNext.click();
+        String tokenCilokPrice2= txTokenPrice.getText();
+        Assert.assertEquals(tokenCilokPrice,tokenCilokPrice2);
+        action.checkTextCountains("Add a personal note?");
+        action.checkTextCountains("Good words to go with the gift...");
+        btnGiftBack.click();
+        btnDismissCardGift.click();
+    }
 
+    public void checkMarketingEvent()throws InterruptedException{
+        btnShareMarketing.isDisplayed();
+        btnRemindMeMarketing.isDisplayed();
+        String EventTitle= txtEventTitle.getText();
+        Assert.assertFalse(action.checkPageElement("Leaderboard"));
+        Assert.assertFalse(action.checkPageElement("Gift History"));
+        txtEventDetail.click();
+        Thread.sleep(1500);
+        action.checkTextCountains("About event");
+        action.checkTextCountains("How to join this event");
+        action.checkTextCountains("I already have a ticket");
+        action.checkTextCountains("I don't have a ticket");
+        txtBackToChat.click();
+        txtEventDetail.isDisplayed();
+        btnShareMarketing.click();
+        Thread.sleep(1500);
+        action.checkTextCountains("Suggest this to friends");
+        action.checkTextCountains("IG Story");
+        action.checkTextCountains("WhatsApp");
+        action.checkTextCountains("Twitter");
+        action.checkTextCountains("Copy Link");
+        btnMore.click();
+        Thread.sleep(1500);
+        action.checkTextCountains(EventTitle);
+        action.androidBack();
+        txtCopyLink.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Link copied.");
+        action.androidBack();
+        btnRemindMeMarketing.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Reminder On");
+        btnRemindMeMarketing.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Remind Me");
+    }
+
+    public void checkReminderFunction()throws InterruptedException{
+        action.waitUntiElementPresent(By.id(liveBanner));
+        action.scroToElement("Today's Live Events");
+        btnReminder.click();
+        Thread.sleep(1000);
+        Assert.assertTrue(btnReminder.isSelected());
+        btnReminder.click();
+        Assert.assertFalse(btnReminder.isSelected());
+//        action.scroToElement("Tomorrow's Events");
+//        btnReminder.click();
+//        Thread.sleep(1000);
+//        Assert.assertTrue(btnReminder.isSelected());
+//        btnReminder.click();
+//        Assert.assertFalse(btnReminder.isSelected());
+//        action.scroToElement("GoPlay Exclusive");
+//        btnReminder.click();
+//        Thread.sleep(1000);
+//        Assert.assertTrue(btnReminder.isSelected());
+//        btnReminder.click();
+//        Assert.assertFalse(btnReminder.isSelected());
+        action.scroToElement("Add to Your Calendar");
+        btnReminder.click();
+        Thread.sleep(1000);
+        Assert.assertTrue(btnReminder.isSelected());
+        btnReminder.click();
+        Assert.assertFalse(btnReminder.isSelected());
+    }
+
+    public void checkTodayLiveEvent()throws InterruptedException{
+        btnShareMarketing.isDisplayed();
+        btnRemindMeMarketing.isDisplayed();
+        String EventTitle= txtEventTitle.getText();
+        txtGiftHistory.isDisplayed();
+        txtLeaderboard.isDisplayed();
+        inputChat.isDisplayed();
+        btnGift.isDisplayed();
+        txtEventDetail.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("About event");
+        txtBackToChat.click();
+        btnGift.isDisplayed();
+        btnShareMarketing.click();
+        action.checkTextCountains("Suggest this to friends");
+        action.checkTextCountains("IG Story");
+        action.checkTextCountains("WhatsApp");
+        action.checkTextCountains("Twitter");
+        action.checkTextCountains("Copy Link");
+        btnMore.click();
+        Thread.sleep(1000);
+        action.checkTextCountains(EventTitle);
+        action.androidBack();
+        txtCopyLink.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Link copied.");
+        action.androidBack();
+        btnRemindMeMarketing.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Reminder On");
+        btnRemindMeMarketing.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Remind Me");
+        btnGift.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Choose a virtual gift");
+        action.androidBack();
+    }
+
+    public void checkSwitchGroup() throws InterruptedException{
+        action.checkTextCountains("Chat in public..");
+        btnSwitchGroup.click();
+        action.checkTextCountains("Chat in group..");
+        action.checkTextCountains("Create a room to chat privately");
+        Assert.assertFalse(action.checkPageElement("Leaderboard"));
+        Assert.assertFalse(action.checkPageElement("Gift History"));
+        btnJoinGroup.click();
+        inputGroupName.sendKeys("TestingGroup");
+        btnSubmitJoinGroup.click();
+        action.checkTextCountains("Group not Found");
+        btnCloseGroup.click();
+        btnCreateGroup.click();
+        Thread.sleep(1500);
+        action.checkTextCountains("Create group");
+        btnCloseGroup.click();
+        btnSwitchGroup.click();
+        action.checkTextCountains("Chat in public..");
+        txtGiftHistory.isDisplayed();
+        txtLeaderboard.isDisplayed();
+    }
+
+    public void checkRecordedEvent() throws InterruptedException{
+        action.checkTextCountains("Recorded Live Shows");
+        bannerRecordedShow.click();
+        btnPlayNow.isDisplayed();
+        action.checkTextCountains("Share to IG");
+        action.checkTextCountains("Cast");
+        action.checkTextCountains("Director");
+        action.checkTextCountains("Writer");
+        action.checkTextCountains("GoPlay");
+        btnPlayNow.click();
+        frameVideoPlay.isDisplayed();
+        action.androidBack();
+        btnPlayNow.isDisplayed();
+    }
 
 }

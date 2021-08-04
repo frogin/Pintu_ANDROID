@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import pages.LivePage;
 
 public class LiveStep extends BaseUtil {
+
     @Given("I open live event")
     public void iOpenLiveEvent() throws InterruptedException {
         LivePage page = new LivePage(driver);
@@ -66,5 +67,59 @@ public class LiveStep extends BaseUtil {
         LivePage page = new LivePage(driver);
         page.checkSendShout();
 
+    }
+
+    @Given("I open Marketing event")
+    public void iOpenMarketingEvent() {
+        LivePage page = new LivePage(driver);
+        page.openMarketingEvent();
+    }
+
+    @And("I verify all element on marketing page")
+    public void iVerifyAllElementOnMarketingPage() throws InterruptedException{
+        LivePage page = new LivePage(driver);
+        page.checkMarketingEvent();
+    }
+
+    @Given("I Verify reminder function in All section")
+    public void iVerifyReminderFunctionInAllSection()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.checkReminderFunction();
+    }
+
+    @Given("I open Today live event")
+    public void iOpenTodayLiveEvent() {
+        LivePage page = new LivePage(driver);
+        page.openTodayLiveEvent();
+    }
+
+    @And("I verify all element on today live event page")
+    public void iVerifyAllElementOnTodayLiveEventPage()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.checkTodayLiveEvent();
+    }
+
+    @And("I send gift to performer")
+    public void iSendGiftToPerformer()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.checkSendGift();
+    }
+
+    @Then("I check group functionality")
+    public void iCheckGroupFunctionality()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.checkSwitchGroup();
+    }
+
+    @Given("I open top watched event")
+    public void iOpenTopWatchedEvent() {
+        LivePage page = new LivePage(driver);
+        page.openTopWatchedShow();
+    }
+
+    @Then("I verify all element on recorded event")
+    public void iVerifyAllElementOnRecordedEvent()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.checkRecordedEvent();
     }
 }
