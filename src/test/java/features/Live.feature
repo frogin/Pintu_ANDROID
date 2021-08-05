@@ -23,7 +23,7 @@ Feature: Live Feature
   @Live
   Scenario: User play with another live recommendation
     Given I open live event
-    Then   I open another live recommendation
+    Then  I open another live recommendation
 
   @Live
   Scenario: User tap Hearts and number supposed to be Increase

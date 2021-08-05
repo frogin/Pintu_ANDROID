@@ -3,6 +3,7 @@ package pages;
 import Base.BaseData;
 import Base.BaseUtil;
 import Base.ElementAction;
+import gherkin.lexer.Th;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -37,16 +38,10 @@ public class HomePage extends BaseUtil {
     @AndroidFindBy(id = "com.goplay.android:id/tv_display_description_text")
     public MobileElement evDet;
 
-    public void Check(String userName, String password)
-    {
-        btnLogin.click();
-
-//        txtUserName.sendKeys(userName);
-//        txtPassword.sendKeys(password);
-    }
 
     public void CheckElementHomepage() throws InterruptedException {
-        action.waitUntiElementPresent(By.id("com.goplay.android:id/btn_login"));
+        Thread.sleep(4000);
+       action.waitUntiElementPresent(By.id("com.goplay.android:id/btn_login"));
         action.checkTextCountains(BaseData.HomePage.WelcomeTitle_ENG);
         action.checkTextCountains(BaseData.HomePage.WelcomeTitleBody_ENG);
         action.checkTextCountains(BaseData.HomePage.ButtonLogin_ENG);

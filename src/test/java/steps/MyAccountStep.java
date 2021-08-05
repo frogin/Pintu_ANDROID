@@ -22,7 +22,7 @@ public class MyAccountStep extends BaseUtil {
     }
 
     @Then("I verify user can input promo code")
-    public void iVerifyUserCanInputPromoCode() {
+    public void iVerifyUserCanInputPromoCode()throws InterruptedException {
         MyAccountPage page = new MyAccountPage(driver);
         page.checkEnterAccessCode();
     }

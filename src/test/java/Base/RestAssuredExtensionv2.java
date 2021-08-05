@@ -24,7 +24,7 @@ public class RestAssuredExtensionv2 {
     public RestAssuredExtensionv2(String uri, String method, String token) {
 
         //Formulate the API url
-        this.url = "https://custinfo.smartfren.com" + uri;
+        this.url = "http://10.120.4.21:9000" + uri;
         this.method = method;
 
         if(token != null)
@@ -66,6 +66,8 @@ public class RestAssuredExtensionv2 {
      * @return
      */
     public ResponseOptions<Response> ExecutWitheBody(String body) {
+        builder.addHeader("clientid","red_robin");
+        builder.addHeader("passkey","robin1234");
         builder.setBody(body);
         return ExecuteAPI();
     }

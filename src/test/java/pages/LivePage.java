@@ -205,6 +205,12 @@ public class LivePage extends BaseUtil {
     @AndroidFindBy(id = "com.goplay.android:id/bc_video_view")
     public MobileElement frameVideoPlay;
 
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout" +
+            "/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup" +
+            "/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/" +
+            "android.widget.LinearLayout[3]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.FrameLayout")
+    public MobileElement txtEventTicketed;
+
 
 
 
@@ -218,15 +224,15 @@ public class LivePage extends BaseUtil {
 
     public void openMarketingEvent() {
         action.waitUntiElementPresent(By.id(liveBanner));
-        action.scroToElement("Check this out!");
-        bannerMarketing.click();
+        action.scroToElement("Ticketed Shows");
+        txtEventTicketed.click();
         btnOnce.click();
         action.waitUntiElementPresent(By.id(EventTitle));
     }
 
     public void openTodayLiveEvent() {
         action.waitUntiElementPresent(By.id(liveBanner));
-        action.scroToElement("Check this out!");
+        action.scroToElement("Tomorrow's Events");
         bannerLive.click();
         btnOnce.click();
         action.waitUntiElementPresent(By.id(EventTitle));
@@ -361,10 +367,7 @@ public class LivePage extends BaseUtil {
         action.checkTextCountains("Shout");
         action.checkTextCountains("Food");
         action.checkTextCountains("Next");
-        String tokenInfo= txtTokenInfo.getText();
         txtTokenInfo.click();
-        String tokenBalance= txtTokenBalance.getText();
-        Assert.assertEquals(tokenInfo,tokenBalance);
         action.androidBack();
         String tokenLitPrice= txTokenPrice.getText();
         action.checkTextCountains("You're lit");

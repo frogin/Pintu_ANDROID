@@ -54,24 +54,37 @@ public class BaseUtil {
                     capabilities.setCapability(MobileCapabilityType.FULL_RESET, "false");
                     capabilities.setCapability(AndroidCapabilityType.AUTO_GRANT_PERMISSION, "true");
                     capabilities.setCapability(MobileCapabilityType.APP, apk_Path);
+                    driver = new AndroidDriver <MobileElement>(url, capabilities);
 
                     break;
 
                 /* Use Cloud Server */
                 case "cloudURL":
-                    caps.setCapability("device", "Samsung Galaxy S21");
-                    caps.setCapability("os_version", "11");
-                    caps.setCapability("project", "Alohaa");
-                    caps.setCapability("build", "KUYKUY");
-                    caps.setCapability("name", "Bstack-[Java] Sample Test");
-                    caps.setCapability("app", "bs://cfc873dd89d407f2e1a2db55a76ff308823c9fcc");
+                    // Set your access credentials
+                    capabilities.setCapability("browserstack.user", "pramod228");
+                    capabilities.setCapability("browserstack.key", "uHVi2pss6A7AZuLsjwnA");
+
+                    // Set URL of the application under test
+                    capabilities.setCapability("app", "bs://9d12a709ba9000ec745fd90c8fea9d3f4c5f090b");
+
+                    // Specify device and os_version for testing
+                    capabilities.setCapability("device", "Google Pixel 3");
+                    capabilities.setCapability("os_version", "9.0");
+
+                    // Set other BrowserStack capabilities
+                    capabilities.setCapability("project", "First Java Project");
+                    capabilities.setCapability("build", "Java Android");
+                    capabilities.setCapability("name", "first_test");
+                    driver = new AndroidDriver<MobileElement>(
+                            new URL("http://hub.browserstack.com/wd/hub"), capabilities);
+
                     break;
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        driver = new AndroidDriver <MobileElement>(url, capabilities);
+ //       driver = new AndroidDriver <MobileElement>(url, capabilities);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.hideKeyboard();
         wait = new WebDriverWait(driver, 15);

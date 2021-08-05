@@ -44,14 +44,18 @@ public class APISupport {
                 "        \"imei2\": \"358796080492328358796080492328\"\n" +
                 "    }\n" +
                 "}";
+
+        String test= "{\n" +
+                "\t\"phone\": \"81314842707\"\n" +
+                "}";
         //Perform post operation
         //response = RestAssuredExtension.PostOpsWithBodyAndPathParams(url, param);
         RestAssuredExtensionv2 ReaRestAssuredV2 = new RestAssuredExtensionv2 (url, APIConstant.ApiMethods.POST, token);
-        response = ReaRestAssuredV2.ExecutWitheBody(param);
+        response = ReaRestAssuredV2.ExecutWitheBody(test);
         System.out.println(response.getBody().prettyPeek());
         System.out.println("API response body = " + response.getBody().asString());
-        token = response.getBody().jsonPath().get("status");
-        System.out.println(token);
+//        token = response.getBody().jsonPath().get("status");
+//        System.out.println(token);
 
     }
 

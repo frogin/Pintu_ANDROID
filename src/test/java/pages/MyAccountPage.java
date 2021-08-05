@@ -156,9 +156,10 @@ public class MyAccountPage extends BaseUtil {
         btnOK.click();
     }
 
-    public void checkEnterAccessCode() {
+    public void checkEnterAccessCode()throws InterruptedException {
         txtEnterAccessCode.click();
         btnApply.isDisplayed();
+        Thread.sleep(1500);
         action.checkTextCountains("Type your GoPlay promo code here");
         inputPromoCode.sendKeys("4444");
         btnApply.click();

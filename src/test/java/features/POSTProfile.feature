@@ -3,7 +3,7 @@ Feature: PostProfile
 
   @TestAPI
   Scenario: Verify Post operation for Profile
-    Given I Perform POST operation for "/assembly/engine/v4/hello" with body
+    Given I Perform POST operation for "/otp" with body
 #    Then I should see the body has name as "Sams"
 
   Scenario: Verify Post operation for from BDD STYLE
