@@ -76,10 +76,12 @@ public class LoginPage extends BaseUtil {
     public void loginWithIndiaNumber() throws InterruptedException {
         btnChangeCountry.click();
         inputCountryName.sendKeys("India");
+        btnSelectCountry.isDisplayed();
         btnSelectCountry.click();
         inputPhoneNumber.sendKeys("7998755888");
         btnContinue.click();
         inputOTP.sendKeys("1234");
+        btnOkay.isDisplayed();
 //        imgTokenFree.isDisplayed();
 //        action.androidBack();
         btnOkay.click();
