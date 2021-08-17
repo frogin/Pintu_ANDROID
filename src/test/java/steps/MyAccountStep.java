@@ -32,4 +32,10 @@ public class MyAccountStep extends BaseUtil {
         MyAccountPage page = new MyAccountPage(driver);
         page.checkTokens();
     }
+
+    @Then("I verify user can pay Goplay access staging")
+    public void iVerifyUserCanPayGoplayAccessStaging() {
+        MyAccountPage page = new MyAccountPage(driver);
+        page.checkGoplayAccessStaging();
+    }
 }

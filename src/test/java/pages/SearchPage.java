@@ -20,19 +20,19 @@ public class SearchPage extends BaseUtil {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(id = "com.goplay.android:id/homeSearchFragment")
+    @AndroidFindBy(id = "homeSearchFragment")
     public MobileElement pageSearch;
 
-    @AndroidFindBy(id = "com.goplay.android:id/homeDownloadsFragment")
+    @AndroidFindBy(id = "homeDownloadsFragment")
     public MobileElement pageDownload;
 
-    @AndroidFindBy(id = "com.goplay.android:id/inbox_nav_graph")
+    @AndroidFindBy(id = "inbox_nav_graph")
     public MobileElement pageInbox;
 
-    @AndroidFindBy(id = "com.goplay.android:id/feed_poster_with_badge")
+    @AndroidFindBy(id = "feed_poster_with_badge")
     public MobileElement bannerGeneral;
 
-    @AndroidFindBy(id = "com.goplay.android:id/homeProfileFragment")
+    @AndroidFindBy(id = "homeProfileFragment")
     public MobileElement pageMyAccount;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='All movies']")
@@ -50,19 +50,19 @@ public class SearchPage extends BaseUtil {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Romance']")
     public MobileElement txtRomance;
 
-    @AndroidFindBy(id = "com.goplay.android:id/search_text")
+    @AndroidFindBy(id = "search_text")
     public MobileElement inputMovieName;
 
-    @AndroidFindBy(id = "com.goplay.android:id/clear_button")
+    @AndroidFindBy(id = "clear_button")
     public MobileElement btnClearSearch;
 
-    @AndroidFindBy(id = "com.goplay.android:id/search_history_clear_button")
+    @AndroidFindBy(id = "search_history_clear_button")
     public MobileElement btnClearAll;
 
-    @AndroidFindBy(id = "com.goplay.android:id/btn_positive")
+    @AndroidFindBy(id = "btn_positive")
     public MobileElement btnYesClearAll;
 
-    @AndroidFindBy(id = "com.goplay.android:id/back_button")
+    @AndroidFindBy(id = "back_button")
     public MobileElement btnBack;
 
     public void gotoSearch() {

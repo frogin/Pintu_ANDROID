@@ -20,7 +20,7 @@ public class IndiePage extends BaseUtil {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(id = "com.goplay.android:id/feed_item_image")
+    @AndroidFindBy(id = "feed_item_image")
     public MobileElement bannerMovie;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Indie']")

@@ -9,7 +9,8 @@
 
     <test name="Complete test run">
         <classes>
-            <class name="runner.TestRunner" />
+<!--            <class name="runner.TestRunner" />-->
+            <class name="runner.TestRunnerStaging" />
         </classes>
     </test>
 

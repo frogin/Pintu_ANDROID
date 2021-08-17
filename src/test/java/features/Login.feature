@@ -8,6 +8,13 @@ Feature: Login Feature
     Then I should see login form
 
   @Login
+  Scenario: Checking login element dua
+    Given I navigate to the Home page
+    And   I click login button
+    And   I login using India number
+
+
+  @Login
   Scenario: Login with unregistered phone number
     Given I navigate to the Home page
     And I click login button

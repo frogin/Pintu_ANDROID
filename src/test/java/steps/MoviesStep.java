@@ -48,4 +48,16 @@ public class MoviesStep extends BaseUtil {
         MoviesPage page = new MoviesPage(driver);
         page.openRandomMovie();
     }
+
+    @Then("I verify all element and user can watch all episode Staging")
+    public void iVerifyAllElementAndUserCanWatchAllEpisodeStaging() {
+        MoviesPage page = new MoviesPage(driver);
+        page.checkMovieDetailPageWithFreeAllStaging();
+    }
+
+    @Then("I verify that I can rent movie staging")
+    public void iVerifyThatICanRentMovieStaging() {
+        MoviesPage page = new MoviesPage(driver);
+        page.checkRentMovieStaging();
+    }
 }

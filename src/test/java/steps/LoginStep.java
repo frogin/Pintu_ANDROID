@@ -13,14 +13,6 @@ public class LoginStep extends BaseUtil {
 
     private  BaseUtil base;
 
-    @DataTableType(replaceWithEmptyString = "[blank]")
-    public User convert(Map<String, String> entry){
-        return new User(
-                entry.get("username"),
-                entry.get("password").concat("$$$$$")
-        );
-    }
-
     @And("^I click login button$")
     public void iClickLoginButton() throws Throwable {
         HomePage page = new HomePage(driver);
@@ -51,16 +43,18 @@ public class LoginStep extends BaseUtil {
         page.CheckModalRegister();
     }
 
-
-
-    public class User {
-        public String username;
-        public String password;
-
-        public User(String userName, String passWord) {
-            username= userName;
-            password = passWord;
-        }
+    @And("I login using India number")
+    public void iLoginUsingIndiaNumber() throws InterruptedException{
+        LoginPage page = new LoginPage(driver);
+        page.loginWithIndiaNumber();
     }
+
+    @Given("User do login")
+    public void userDoLogin() throws InterruptedException{
+        LoginPage page = new LoginPage(driver);
+        page.userDoLogin();
+    }
+
+
 
 }

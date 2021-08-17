@@ -18,7 +18,7 @@ public class MyAccountPage extends BaseUtil {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(id = "com.goplay.android:id/homeProfileFragment")
+    @AndroidFindBy(id = "homeProfileFragment")
     public MobileElement pageMyAccount;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='GoPlay Access']")
@@ -48,16 +48,16 @@ public class MyAccountPage extends BaseUtil {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Report Issue']")
     public static MobileElement txtReporIssue;
 
-    @AndroidFindBy(id = "com.goplay.android:id/button_contact_customer_care")
+    @AndroidFindBy(id = "button_contact_customer_care")
     public MobileElement btnGetAccess;
 
-    @AndroidFindBy(id = "com.goplay.android:id/subscribe_button")
+    @AndroidFindBy(id = "subscribe_button")
     public MobileElement btnChoose;
 
-    @AndroidFindBy(id = "com.goplay.android:id/clear_button")
+    @AndroidFindBy(id = "clear_button")
     public MobileElement btnCloseSubs;
 
-    @AndroidFindBy(id = "com.goplay.android:id/restore_button")
+    @AndroidFindBy(id = "restore_button")
     public MobileElement btnManageSubs;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='GoPlay access (besides 1-month)']")
@@ -90,10 +90,10 @@ public class MyAccountPage extends BaseUtil {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='1-month subscription']")
     public static MobileElement txtMonthSubs;
 
-    @AndroidFindBy(id = "com.goplay.android:id/button_continue")
+    @AndroidFindBy(id = "button_continue")
     public MobileElement btnApply;
 
-    @AndroidFindBy(id = "com.goplay.android:id/promo_code_input")
+    @AndroidFindBy(id = "promo_code_input")
     public MobileElement inputPromoCode;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout" +
@@ -101,20 +101,26 @@ public class MyAccountPage extends BaseUtil {
             "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.TextView[2]")
     public MobileElement txtTokenValueMyAccount;
 
-    @AndroidFindBy(id = "com.goplay.android:id/balance_field")
+    @AndroidFindBy(id = "balance_field")
     public MobileElement txtTokenValue;
 
-    @AndroidFindBy(id = "com.goplay.android:id/token_balance_label")
+    @AndroidFindBy(id = "token_balance_label")
     public MobileElement txtCurrentBalance;
 
-    @AndroidFindBy(id = "com.goplay.android:id/offset_button")
+    @AndroidFindBy(id = "offset_button")
     public MobileElement btnHowGetToken;
 
     @AndroidFindBy(xpath = "//android.view.View[@text='How to earn more token']")
     public static MobileElement txtEarnMoreToken;
 
-    @AndroidFindBy(id = "com.goplay.android:id/btnSwitch")
+    @AndroidFindBy(id = "btnSwitch")
     public MobileElement toogleDownload;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='GOPLAY-DEV']")
+    public static MobileElement txtGoplayDEV;
+
+    @AndroidFindBy(id = "button_once")
+    public MobileElement btnOnce;
 
 
 
@@ -149,11 +155,23 @@ public class MyAccountPage extends BaseUtil {
         frameGojek.isDisplayed();
         action.checkTextCountains("Welcome to Gojek!");
         action.androidBack();
-        txtPaymentOptionThree.click();
+//        txtPaymentOptionThree.click();
+//        btnChoose.click();
+//        txtMonthSubs.isDisplayed();
+//        action.androidBack();
+//        btnOK.click();
+    }
+
+    public void checkGoplayAccessStaging() {
+        txtGoplayAccess.click();
+        btnGetAccess.click();
+        btnChoose.isDisplayed();
+        btnManageSubs.isDisplayed();
+        txtPaymentOptionTwo.click();
         btnChoose.click();
-        txtMonthSubs.isDisplayed();
+        frameGojek.isDisplayed();
+        action.checkTextCountains("Welcome to Gojek!");
         action.androidBack();
-        btnOK.click();
     }
 
     public void checkEnterAccessCode()throws InterruptedException {
@@ -163,6 +181,7 @@ public class MyAccountPage extends BaseUtil {
         action.checkTextCountains("Type your GoPlay promo code here");
         inputPromoCode.sendKeys("4444");
         btnApply.click();
+        Thread.sleep(1500);
         action.checkTextCountains("Sorry. This code is either fully redeemed or invalid.");
     }
 

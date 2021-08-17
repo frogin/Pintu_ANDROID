@@ -14,9 +14,10 @@ public class Hook extends BaseUtil{
     }
 
     @Before
-    public void setUp() throws IOException {
+    public void setUp() throws IOException, InterruptedException {
         System.out.println("HOOK BEFORE");
-        setupAppium("localURL");
+        setupAppium("cloudURL");
+        getPackage();
     }
 
 

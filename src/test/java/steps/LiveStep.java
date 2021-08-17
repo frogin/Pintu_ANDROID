@@ -14,6 +14,12 @@ public class LiveStep extends BaseUtil {
         page.openLiveEvent();
     }
 
+    @Given("I open live event staging")
+    public void iOpenLiveEventStaging() throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.openLiveEventStaging();
+    }
+
     @And("`I check event detail element")
     public void iCheckEventDetailElement() throws InterruptedException{
         LivePage page = new LivePage(driver);
@@ -66,7 +72,13 @@ public class LiveStep extends BaseUtil {
     public void iSendShoutToPerformer()throws InterruptedException {
         LivePage page = new LivePage(driver);
         page.checkSendShout();
+    }
 
+
+    @And("I send gift to performer staging")
+    public void iSendGiftToPerformerStaging()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.checkSendGiftStaging();
     }
 
     @Given("I open Marketing event")
@@ -91,6 +103,13 @@ public class LiveStep extends BaseUtil {
     public void iOpenTodayLiveEvent() {
         LivePage page = new LivePage(driver);
         page.openTodayLiveEvent();
+    }
+
+
+    @Given("I open Today live event staging")
+    public void iOpenTodayLiveEventStaging() {
+        LivePage page = new LivePage(driver);
+        page.openTodayLiveEventStaging();
     }
 
     @And("I verify all element on today live event page")
@@ -122,4 +141,18 @@ public class LiveStep extends BaseUtil {
         LivePage page = new LivePage(driver);
         page.checkRecordedEvent();
     }
+
+    @Given("I open Promoted event")
+    public void iOpenPromotedEvent() {
+        LivePage page = new LivePage(driver);
+        page.openPromotedEvent();
+    }
+
+    @And("I verify all element on promoted event page")
+    public void iVerifyAllElementOnPromotedEventPage()throws InterruptedException  {
+        LivePage page = new LivePage(driver);
+        page.checkTodayLiveEvent();
+    }
+
+
 }

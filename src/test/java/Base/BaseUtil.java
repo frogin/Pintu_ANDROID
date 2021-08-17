@@ -12,6 +12,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.LoginPage;
+import steps.LoginStep;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,6 +31,7 @@ public class BaseUtil {
     public static AndroidDriver<MobileElement> driver;
     public static TouchAction touchAction;
     public WebDriverWait wait;
+    public static String packageName = "";
 
 
     public void setupAppium(String urlServer) throws MalformedURLException, IOException {
@@ -50,8 +54,8 @@ public class BaseUtil {
                     capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, configFile.getProperty("androidPlatformVersion"));
                     capabilities.setCapability(AndroidCapabilityType.APP_PACKAGE, configFile.getProperty("androidAppPackage"));
                     capabilities.setCapability(AndroidCapabilityType.APP_ACTIVITY, configFile.getProperty("androidAppActivity"));
-                    capabilities.setCapability(MobileCapabilityType.NO_RESET, "true");
-                    capabilities.setCapability(MobileCapabilityType.FULL_RESET, "false");
+                    capabilities.setCapability(MobileCapabilityType.NO_RESET, "false");
+                    capabilities.setCapability(MobileCapabilityType.FULL_RESET, "true");
                     capabilities.setCapability(AndroidCapabilityType.AUTO_GRANT_PERMISSION, "true");
                     capabilities.setCapability(MobileCapabilityType.APP, apk_Path);
                     driver = new AndroidDriver <MobileElement>(url, capabilities);
@@ -65,16 +69,16 @@ public class BaseUtil {
                     capabilities.setCapability("browserstack.key", "uHVi2pss6A7AZuLsjwnA");
 
                     // Set URL of the application under test
-                    capabilities.setCapability("app", "bs://9d12a709ba9000ec745fd90c8fea9d3f4c5f090b");
+                    capabilities.setCapability("app", "bs://20790b7661bb499f96afae5dba529a52be716634");
 
                     // Specify device and os_version for testing
-                    capabilities.setCapability("device", "Google Pixel 3");
+                    capabilities.setCapability("device", "Google Pixel 3a XL");
                     capabilities.setCapability("os_version", "9.0");
 
                     // Set other BrowserStack capabilities
-                    capabilities.setCapability("project", "First Java Project");
+                    capabilities.setCapability("project", "CUCUMBER STAGING");
                     capabilities.setCapability("build", "Java Android");
-                    capabilities.setCapability("name", "first_test");
+                    capabilities.setCapability("name", "Go_Cucumber");
                     driver = new AndroidDriver<MobileElement>(
                             new URL("http://hub.browserstack.com/wd/hub"), capabilities);
 
@@ -98,9 +102,20 @@ public class BaseUtil {
         fileOut.close();
     }
 
-    public void closeApp() {
+    public void getPackage() throws InterruptedException {
+        LoginPage page = new LoginPage(driver);
 
-        driver.closeApp();
+        //driver.closeApp();
+        String getPackage = driver.getCurrentPackage();
+        System.out.println(getPackage);
+        packageName = getPackage+":id";
+        System.out.println(packageName);
+        if(getPackage.equals("com.goplay.android.dev")){
+            page.userDoLogin();
+        }
+        else{
+            System.out.println("RUNNING IN PROD");
+        }
     }
 
     public void uninstallApp() {

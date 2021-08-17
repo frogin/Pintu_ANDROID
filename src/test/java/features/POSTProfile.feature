@@ -9,4 +9,3 @@ Feature: PostProfile
   Scenario: Verify Post operation for from BDD STYLE
     Given I check with BDDStyle
 
-

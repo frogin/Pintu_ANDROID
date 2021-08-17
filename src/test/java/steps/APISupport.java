@@ -54,7 +54,7 @@ public class APISupport {
         response = ReaRestAssuredV2.ExecutWitheBody(test);
         System.out.println(response.getBody().prettyPeek());
         System.out.println("API response body = " + response.getBody().asString());
-//        token = response.getBody().jsonPath().get("status");
+        token = response.getBody().jsonPath().get("status");
 //        System.out.println(token);
 
     }
