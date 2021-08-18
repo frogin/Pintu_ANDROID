@@ -78,6 +78,7 @@ public class LoginPage extends BaseUtil {
         inputCountryName.sendKeys("India");
         btnSelectCountry.isDisplayed();
         btnSelectCountry.click();
+        inputPhoneNumber.isDisplayed();
         inputPhoneNumber.sendKeys("7998755888");
         btnContinue.click();
         inputOTP.sendKeys("1234");

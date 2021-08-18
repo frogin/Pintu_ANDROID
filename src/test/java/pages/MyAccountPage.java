@@ -135,7 +135,7 @@ public class MyAccountPage extends BaseUtil {
         btnChoose.isDisplayed();
         btnManageSubs.isDisplayed();
         action.checkTextCountains("Popular offers");
-        action.checkTextCountains("Subscribe GoPlay");
+        //action.checkTextCountains("Subscribe GoPlay");
         btnChoose.click();
         txtLangganan1Bulan.isDisplayed();
         action.checkTextCountains("Choose an access to start watching on GoPlay");
