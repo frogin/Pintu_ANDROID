@@ -54,8 +54,8 @@ public class BaseUtil {
                     capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, configFile.getProperty("androidPlatformVersion"));
                     capabilities.setCapability(AndroidCapabilityType.APP_PACKAGE, configFile.getProperty("androidAppPackage"));
                     capabilities.setCapability(AndroidCapabilityType.APP_ACTIVITY, configFile.getProperty("androidAppActivity"));
-                    capabilities.setCapability(MobileCapabilityType.NO_RESET, "false");
-                    capabilities.setCapability(MobileCapabilityType.FULL_RESET, "true");
+                    capabilities.setCapability(MobileCapabilityType.NO_RESET, "true");
+                    capabilities.setCapability(MobileCapabilityType.FULL_RESET, "false");
                     capabilities.setCapability(AndroidCapabilityType.AUTO_GRANT_PERMISSION, "true");
                     capabilities.setCapability(MobileCapabilityType.APP, apk_Path);
                     driver = new AndroidDriver <MobileElement>(url, capabilities);

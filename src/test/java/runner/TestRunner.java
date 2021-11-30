@@ -8,7 +8,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
         features = {"src/test/java/features/"},
-        tags= ("@Live or @Movies or @Indie or @Search or @Setting" ),
+        tags= ("@Live or @Search or @Profile or @Movies or @Setting or @Indie" ),
         glue= {"steps"},
         plugin = { "json:target/cucumber.json","pretty" }
 

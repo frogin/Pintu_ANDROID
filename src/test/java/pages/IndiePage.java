@@ -23,7 +23,7 @@ public class IndiePage extends BaseUtil {
     @AndroidFindBy(id = "feed_item_image")
     public MobileElement bannerMovie;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Indie']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='INDIE']")
     public MobileElement txtIndie;
 
     public void gotoindiePage() {
@@ -38,7 +38,7 @@ public class IndiePage extends BaseUtil {
         MoviesPage.btnContribute.isDisplayed();
         MoviesPage.btnShareIG.isDisplayed();
         LivePage.btnPlayNow.click();
-        Assert.assertFalse(action.checkPageElement("Share to IG"));
+        Assert.assertFalse(action.checkPageSource("Share to IG"));
         action.androidBack();
         LivePage.btnPlayNow.isDisplayed();
         action.scroToElement("More like this");

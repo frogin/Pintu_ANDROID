@@ -41,7 +41,7 @@ public class LiveStep extends BaseUtil {
     @And("I open performer profile to check all element")
     public void iOpenPerformerProfileToCheckAllElement() {
         LivePage page = new LivePage(driver);
-        page.checkPerformerProfile();
+        page.checkPerformerProfileFromLive();
     }
 
     @And("I tap live event from profile to goback")
@@ -154,5 +154,106 @@ public class LiveStep extends BaseUtil {
         page.checkTodayLiveEvent();
     }
 
+    @Then("I check streamer profile from recorded")
+    public void iCheckStreamerProfileFromRecorded() {
+        LivePage page = new LivePage(driver);
+        page.checkPerformerProfileFromRecorded();
+    }
 
+    @Given("I do filter and verify the result")
+    public void iDoFilterAndVerifyTheResult() {
+        LivePage page = new LivePage(driver);
+        page.checkFilterEvent();
+    }
+
+    @Then("I remove filter and verify the result")
+    public void iRemoveFilterAndVerifyTheResult() {
+        LivePage page = new LivePage(driver);
+        page.checkRemoveFilter();
+    }
+
+    @Then("I do filter and Remove in Scheduled")
+    public void iDoFilterAndRemoveInScheduled() {
+        LivePage page = new LivePage(driver);
+        page.checkFilterandRemoveInScheduled();
+    }
+
+    @Given("I do gaming filter and verify the result")
+    public void iDoGamingFilterAndVerifyTheResult() {
+        LivePage page = new LivePage(driver);
+        page.checkFilterGaming();
+    }
+
+    @Then("I do scroll to latest event and click back to top to verify the result")
+    public void iDoScrollToLatestEventAndClickBackToTopToVerifyTheResult()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.scrollToBottom();
+    }
+
+    @Given("I verify all component in event poster")
+    public void iVerifyAllComponentInEventPoster() {
+        LivePage page = new LivePage(driver);
+        page.checkPosterComponent();
+    }
+
+    @And("I go to scheduled tab")
+    public void iGoToScheduledTab() {
+        LivePage page = new LivePage(driver);
+        page.goToScheduledTab();
+    }
+
+
+    @Given("I verify all menu in header go to correct direction")
+    public void iVerifyAllMenuInHeaderGoToCorrectDirection() throws InterruptedException{
+        LivePage page = new LivePage(driver);
+        page.checkDirectionHeaderLive();
+    }
+
+    @Given("I click profile from live page and Verify all component")
+    public void iClickProfileFromLivePageAndVerifyAllComponent()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.goToPerformerProfileAndVerify();
+    }
+
+    @And("I send gift to performer with gopay")
+    public void iSendGiftToPerformerWithGopay()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.checkSendGiftWithGopay();
+    }
+
+    @Then("I send gift to performer with credit card")
+    public void iSendGiftToPerformerWithCreditCard()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.checkSendGiftWithCreditCard();
+    }
+
+    @And("I share through whatsapp")
+    public void iShareThroughWhatsapp()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.shareEventtoWhatsapp();
+    }
+
+    @And("I change resolution")
+    public void iChangeResolution(){
+        LivePage page = new LivePage(driver);
+        page.changeResolution();
+    }
+
+    @And("I follow and unfollow form event detail")
+    public void iFollowAndUnfollowFormEventDetail()throws InterruptedException {
+        LivePage page = new LivePage(driver);
+        page.checkFollowUnfollowEventDetail();
+    }
+
+    @And("I follow and unfollow form recorded event")
+    public void iFollowAndUnfollowFormRecordedEvent() throws InterruptedException{
+        LivePage page = new LivePage(driver);
+        page.checkFollowUnfollowRecordedEvent();
+    }
+
+    @And("I open live event from profile pict")
+    public void iOpenLiveEventFromProfilePict() {
+        LivePage page = new LivePage(driver);
+        page.openLiveFromProfilePict();
+    }
 }

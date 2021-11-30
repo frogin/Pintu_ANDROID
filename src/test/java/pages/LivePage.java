@@ -2,10 +2,12 @@ package pages;
 
 import Base.BaseUtil;
 import Base.ElementAction;
+import gherkin.lexer.Th;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.cucumber.java.sl.In;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -25,9 +27,14 @@ public class LivePage extends BaseUtil {
 
     @AndroidFindBy(id = "live_card")
     public static MobileElement bannerLive;
-    public static String liveBanner="feed_item_image";
+    public static String liveBanner="search";
 
-    @AndroidFindBy(id = "cv_feed_item_landscape_parent")
+    @AndroidFindBy(xpath = "hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
+            "android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout[2]/" +
+            "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout")
+    public static MobileElement bannerLivStaging;
+
+    @AndroidFindBy(id = "poster_view")
     public static MobileElement bannerPromoted;
 
     @AndroidFindBy(id = "feed_poster_with_badge")
@@ -37,7 +44,7 @@ public class LivePage extends BaseUtil {
     public static MobileElement btnOnce;
 
     @AndroidFindBy(id = "tv_display_description_text")
-    public MobileElement txtEventDetail;
+    public static MobileElement txtEventDetail;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Back to chat']")
     public MobileElement txtBackToChat;
@@ -108,8 +115,8 @@ public class LivePage extends BaseUtil {
     @AndroidFindBy(id = "marketing_banner_root")
     public MobileElement bannerMarketing;
 
-    @AndroidFindBy(id = "live_reminder_icon")
-    public MobileElement btnReminder;
+    @AndroidFindBy(id = "live_reminder_icon_common")
+    public static MobileElement btnReminder;
 
     @AndroidFindBy(id = "cv_feed_item_landscape_parent")
     public MobileElement bannerLandscape;
@@ -150,10 +157,10 @@ public class LivePage extends BaseUtil {
             "/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/" +
             "android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[5]/" +
             "android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")
-    public MobileElement btnMore;
+    public static MobileElement btnMore;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Copy Link']")
-    public MobileElement txtCopyLink;
+    public static MobileElement txtCopyLink;
 
     @AndroidFindBy(id = "tokens_info")
     public MobileElement txtTokenInfo;
@@ -211,7 +218,7 @@ public class LivePage extends BaseUtil {
 
     @AndroidFindBy(id = "toolbar_title")
     public MobileElement titleRecordedEvent;
-    String RecordedEvent= "toolbar_title";
+    String RecordedEvent= "event_info_performer_name";
 
     @AndroidFindBy(id = "bc_video_view")
     public MobileElement frameVideoPlay;
@@ -225,20 +232,213 @@ public class LivePage extends BaseUtil {
     @AndroidFindBy(id = "alert_button")
     public MobileElement btnOkay;
 
+    @AndroidFindBy(id = "com.goplay.android:id/interstitial_image_relative_layout")
+    public MobileElement bannerPopUp;
+    String PopUpBanner ="com.goplay.android:id/interstitial_image_relative_layout";
 
+    // ELement of V2
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout" +
-            "/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup" +
-            "/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/" +
-            "android.widget.LinearLayout[3]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.FrameLayout")
-    public MobileElement txtEventTicketed;
+    @AndroidFindBy(id = "live_indicator_view")
+    public MobileElement txtLive;
 
+    @AndroidFindBy(id = "live_indicator")
+    public MobileElement txtLiveProfile;
 
+    @AndroidFindBy(id = "genre_layout")
+    public MobileElement infoGenre;
+
+    @AndroidFindBy(id = "event_name_field")
+    public MobileElement infoTitle;
+
+    @AndroidFindBy(id = "viewer_count_layout")
+    public MobileElement infoCCU;
+
+    @AndroidFindBy(id = "profile_clickable")
+    public static MobileElement btnProfile;
+
+    @AndroidFindBy(id = "avatar_view")
+    public MobileElement btnAvatar;
+
+    @AndroidFindBy(id = "performer_name_field")
+    public MobileElement infoPerformerName;
+
+    @AndroidFindBy(id = "performer_detail_field")
+    public MobileElement infoAmountLikes;
+
+    @AndroidFindBy(id = "btn_follow")
+    public static MobileElement btnFollow;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/" +
+            "android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/" +
+            "android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView[2]")
+    public MobileElement bannerTodayEvent;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup" +
+            "/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView")
+    public MobileElement bannerProfileTwo;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='SCHEDULED']")
+    public MobileElement txtScheduled;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='Food']")
+    public MobileElement txtGenreFood;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='Music']")
+    public MobileElement txtGenreMusic;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='Gaming']")
+    public MobileElement txtGenreGaming;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='Chitchat']")
+    public MobileElement txtGenreChitChat;
+
+    @AndroidFindBy(id = "btnPlayPause")
+    public MobileElement btnPlayPause;
+
+    @AndroidFindBy(id = "seek_bar")
+    public MobileElement btnSeekBar;
+
+    @AndroidFindBy(id = "btnSeekLeft")
+    public MobileElement btnSeekLeft;
+
+    @AndroidFindBy(id = "btnSeekRight")
+    public MobileElement btnSeekRight;
+
+    @AndroidFindBy(id = "tv_category")
+    public MobileElement infoRecordedGenre;
+
+    @AndroidFindBy(id = "event_time")
+    public MobileElement infoRecordedDate;
+
+    @AndroidFindBy(id = "event_title")
+    public MobileElement infoRecordedTitle;
+
+    @AndroidFindBy(id = "event_about")
+    public MobileElement infoRecordedDesc;
+
+    @AndroidFindBy(id = "stream_viewer_count")
+    public MobileElement infoRecordedStreamerCOunt;
+
+    @AndroidFindBy(id = "event_info_performer_name")
+    public MobileElement infoRecordedStreamerName;
+
+    @AndroidFindBy(id = "event_details_page_close_btn")
+    public static MobileElement btnCloseEventDetail;
+
+    @AndroidFindBy(id = "streamer_profile_fragment_back_button")
+    public MobileElement btnBackProfilePage;
+
+    @AndroidFindBy(id = "clear_filter_button")
+    public MobileElement btnClearFilter;
+
+    @AndroidFindBy(id = "layout_notification")
+    public MobileElement btnNotification;
+
+    @AndroidFindBy(id = "search")
+    public MobileElement btnSearch;
+
+    @AndroidFindBy(id = "token_container")
+    public MobileElement btnTokenLive;
+
+    @AndroidFindBy(id = "search_text")
+    public MobileElement inputSearchText;
+
+    @AndroidFindBy(id = "streamer_profile_followers_count")
+    public static MobileElement txtProfileNumberFollower;
+
+    @AndroidFindBy(id = "streamer_profile_username")
+    public MobileElement txtProfileUsername;
+
+    @AndroidFindBy(id = "streamer_profile_fragment_share_button")
+    public static MobileElement btnProfileShare;
+
+    @AndroidFindBy(id = "streamer_profile_image")
+    public MobileElement imgProfile;
+
+    @AndroidFindBy(id = "streamer_profile_likes_count")
+    public MobileElement txtProfileLikesCount;
+
+    @AndroidFindBy(id = "was_live_indicator")
+    public MobileElement txtWasLiveIndicator;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='WAS LIVE']")
+    public MobileElement txtRassyaKuliner;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='GoPlay Mask']")
+    public MobileElement txtGoplayMask;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Agreeeeeee']")
+    public MobileElement txtAgree;
+
+    @AndroidFindBy(id = "ll_button_container")
+    public MobileElement btnPayCash;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='GoPay']")
+    public MobileElement txtPaymentGopay;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Credit/Debit Card']")
+    public MobileElement txtPaymentCreditCard;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Install Gojek App from Play Store']")
+    public MobileElement txtNoGojekInstall;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='WhatsApp']")
+    public MobileElement txtSosmedWhatsapp;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='WhatsApp LLC']")
+    public MobileElement txtWhatsappPlayStore;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='| For You']")
+    public MobileElement txtForYou;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Indonesia']")
+    public MobileElement txtIndonsia;
+
+    @AndroidFindBy(id = "com.goplay.android:id/button_primary")
+    public MobileElement btnPayGopay;
+
+    @AndroidFindBy(id = "com.gojek.app:id/pw_widget_payment_method_container")
+    public MobileElement txtTitlePayGojek;
+
+    @AndroidFindBy(id = "btn_action_settings")
+    public MobileElement btnActionSetting;
+
+    @AndroidFindBy(id = "btn_clean_mode")
+    public MobileElement btnCleanMode;
+
+    @AndroidFindBy(xpath = "//android.widget.RadioButton[@text='720p']")
+    public MobileElement txtResolution720;
+
+    @AndroidFindBy(xpath = "//android.widget.RadioButton[@text='360p']")
+    public MobileElement txtResolution360;
+
+    @AndroidFindBy(xpath = "//android.widget.RadioButton[@text='240p']")
+    public MobileElement txtResolution240;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='WhatsApp']")
+    public MobileElement txtOpenWhatsapp;
+
+    @AndroidFindBy(id = "com.whatsapp:id/contactpicker_row_name")
+    public MobileElement infoContainerWhatsapp;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/" +
+            "android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.Button")
+    public MobileElement btnFollowModal;
+
+    public void checkBannerPopUp() {
+        if (driver.getPageSource().contains(PopUpBanner)){
+            System.out.println("POPUP FOUND");
+            action.androidBack();
+        } else {
+            System.out.println("POPUP NOT FOUND!");
+        }
+    }
 
     public void openLiveEvent() {
+//        checkBannerPopUp();
         action.waitUntiElementPresent(By.id(liveBanner));
-        action.scroToElement("Live Now");
-        bannerLive.click();
+//        txtForYou.click();
+        txtLive.click();
         action.waitUntiElementPresent(By.id(EventInfo));
     }
 
@@ -254,46 +454,43 @@ public class LivePage extends BaseUtil {
     public void openMarketingEvent() {
         action.waitUntiElementPresent(By.id(liveBanner));
         action.scroToElement("Ticketed Shows");
-        txtEventTicketed.click();
-        imgChatBeforeStartEvent.isDisplayed();
-        btnOkay.click();
-        btnDismissSwipe.click();
+        //txtEventTicketed.click();
         //btnOnce.click();
         action.waitUntiElementPresent(By.id(EventTitle));
     }
 
     public void openTodayLiveEvent() {
+        checkBannerPopUp();
         action.waitUntiElementPresent(By.id(liveBanner));
-        action.scrollAndClick("GoPlay Exclusive");
-        bannerLive.click();
-        imgChatBeforeStartEvent.isDisplayed();
+        txtScheduled.click();
+        bannerTodayEvent.click();
         action.waitUntiElementPresent(By.id(EventTitle));
     }
 
     public void openTodayLiveEventStaging() {
         action.waitUntiElementPresent(By.id(liveBanner));
         action.scrollAndClick("AUTO curation after tomorrow...");
-        bannerLive.click();
+        bannerLivStaging.click();
         btnOkay.click();
         btnDismissSwipe.click();
         //btnOnce.click();
         action.waitUntiElementPresent(By.id(EventTitle));
+
+
     }
 
     public void openPromotedEvent() {
         action.waitUntiElementPresent(By.id(liveBanner));
-        action.scrollAndClick("GoPlay Exclusive");
+        txtScheduled.click();
         bannerPromoted.click();
-        imgChatBeforeStartEvent.isDisplayed();
-        btnOkay.click();
-        btnDismissSwipe.click();
         action.waitUntiElementPresent(By.id(EventTitle));
     }
 
     public void openTopWatchedShow() {
         action.waitUntiElementPresent(By.id(liveBanner));
-        action.scroToElement("Top Watched Shows");
-        btnSeeAll.click();
+        txtGenreMusic.click();
+        action.scroToElement("WAS LIVE");
+        txtWasLiveIndicator.click();
         action.waitUntiElementPresent(By.id(RecordedEvent));
     }
 
@@ -324,8 +521,7 @@ public class LivePage extends BaseUtil {
             System.out.println("FOUND");
             btnRotate.click();
             Thread.sleep(2000);
-            Assert.assertFalse(action.checkPageElement("Leaderboard"));
-            Assert.assertFalse(action.checkPageElement("Gift History"));
+            Assert.assertFalse(action.checkPageSource("Chat in public.."));
             btnGuideTooltip.click();
             btnCloseLive.isDisplayed();
             txtEventInfo.isDisplayed();
@@ -340,8 +536,7 @@ public class LivePage extends BaseUtil {
             btnShare.isDisplayed();
             btnLike.isDisplayed();
             btnGuideTooltip.click();
-            Assert.assertFalse(action.checkPageElement("Leaderboard"));
-            Assert.assertFalse(action.checkPageElement("Gift History"));
+            Assert.assertFalse(action.checkPageSource("Chat in public.."));
 
         }
     }
@@ -350,22 +545,23 @@ public class LivePage extends BaseUtil {
         //btnCloseLive.click();
         action.androidBack();
         btnDialogYES.click();
-        bannerLive.isDisplayed();
+        btnProfile.isDisplayed();
     }
 
-    public void checkPerformerProfile() {
+    public void checkPerformerProfileFromLive() {
         txtEventInfo.click();
         String txtProfileEvent = txtProfileNameEvent.getText();
-        action.checkTextCountains("Upcoming Events");
         imageProfile.click();
         //btnOnce.click();
         String txtProfile = txtProfileNameProfile.getText();
         Assert.assertEquals(txtProfileEvent,txtProfile);
-        action.checkTextCountains("Upcoming Events");
+        btnFollow.isDisplayed();
+        txtLive.isDisplayed();
+        action.checkTextCountains("Upcoming live shows");
     }
 
     public void openLiveEventFromProfile(){
-        bannerLive.click();
+        txtLive.click();
         txtEventInfo.isDisplayed();
         txtLiveInfo.isDisplayed();
         txtGiftHistory.isDisplayed();
@@ -373,6 +569,7 @@ public class LivePage extends BaseUtil {
     }
 
     public void checkRecommendation() throws InterruptedException{
+        Thread.sleep(2000);
         action.swipeByElements(btnGuideTooltip,txtGiftHistory);
         bannerRecommendation.click();
         txtGiftHistory.isDisplayed();
@@ -412,53 +609,53 @@ public class LivePage extends BaseUtil {
     }
 
     public void checkSendGift()throws InterruptedException{
+        String performerName= infoRecordedStreamerName.getText();
         btnGift.click();
         Thread.sleep(1000);
-        action.checkTextCountains("Choose a virtual gift");
+        action.checkTextCountains("Send virtual gift");
         action.checkTextCountains("All");
         action.checkTextCountains("Shout");
         action.checkTextCountains("Food");
         action.checkTextCountains("Next");
-        txtTokenInfo.click();
-        Thread.sleep(1000);
-        action.androidBack();
-        String tokenLitPrice= txTokenPrice.getText();
-        action.checkTextCountains("You're lit");
-        btnNext.click();
-        String tokenLitPrice2= txTokenPrice.getText();
-        Assert.assertEquals(tokenLitPrice,tokenLitPrice2);
-        action.checkTextCountains("Add a personal note?");
-        action.checkTextCountains("Good words to go with the gift...");
-        btnGiftBack.click();
-        txtGiftShout.click();
-        String tokenLovingItPrice= txTokenPrice.getText();
-        action.checkTextCountains("Loving it");
-        btnNext.click();
-        String tokenLovingItPrice2= txTokenPrice.getText();
-        Assert.assertEquals(tokenLovingItPrice,tokenLovingItPrice2);
-        action.checkTextCountains("Add a personal note?");
-        action.checkTextCountains("Good words to go with the gift...");
-        btnGiftBack.click();
-        txtGiftFood.click();
-        String tokenCilokPrice= txTokenPrice.getText();
-        action.checkTextCountains("Cilok");
-        btnNext.click();
-        String tokenCilokPrice2= txTokenPrice.getText();
-        Assert.assertEquals(tokenCilokPrice,tokenCilokPrice2);
-        action.checkTextCountains("Add a personal note?");
-        action.checkTextCountains("Good words to go with the gift...");
-        btnGiftBack.click();
-        txtGifAll.click();
-        //txtGiftLit.click();
+        action.checkTextCountains("Indonesia");
+        action.checkTextCountains("Japan");
+        action.checkTextCountains("Support " +performerName+ " by sending virtual gift to encourage them creating more content like this!");
+        txtIndonsia.click();
+        txtGoplayMask.click();
         btnNext.click();
         btnPayToken.click();
         btnConfirmGift.isDisplayed();
         Thread.sleep(1000);
-        action.checkTextCountains("You're lit from you is sent to the host!");
         action.checkTextCountains("10 Tokens");
-        btnConfirmGift.click();
+        btnDismissCardGift.click();
         Thread.sleep(1000);
-        action.checkTextCountains("John sent a You're lit.");
+        action.checkTextCountains("sent GoPlay Mask");
+    }
+
+    public void checkSendGiftWithGopay()throws InterruptedException{
+        btnGift.click();
+        Thread.sleep(1000);
+        txtAgree.click();
+        btnNext.click();
+        btnPayCash.click();
+        txtPaymentCreditCard.isDisplayed();
+        txtPaymentGopay.isDisplayed();
+        txtPaymentGopay.click();
+        btnPayGopay.click();
+        txtTitlePayGojek.isDisplayed();
+    }
+
+    public void checkSendGiftWithCreditCard()throws InterruptedException{
+        btnGift.click();
+        Thread.sleep(1000);
+        txtAgree.click();
+        btnNext.click();
+        btnPayCash.click();
+        txtPaymentCreditCard.isDisplayed();
+        txtPaymentGopay.isDisplayed();
+        txtPaymentCreditCard.click();
+        Thread.sleep(1000);
+        Assert.assertTrue(action.checkPageElement("Total Amount"));
     }
 
     public void checkSendGiftStaging()throws InterruptedException{
@@ -505,17 +702,14 @@ public class LivePage extends BaseUtil {
         btnConfirmGift.isDisplayed();
         Thread.sleep(1000);
         action.checkTextCountains("10 Tokens");
-        btnConfirmGift.click();
+        btnDismissCardGift.click();
         Thread.sleep(1000);
-        action.checkTextCountains("Apple Reviewer sent a Come On Joko Tingkir!.");
+        action.checkTextCountains("sent a Spooktober Fest.");
     }
 
     public void checkMarketingEvent()throws InterruptedException{
         btnShareMarketing.isDisplayed();
         btnRemindMeMarketing.isDisplayed();
-        String EventTitle= txtEventTitle.getText();
-        Assert.assertFalse(action.checkPageElement("Leaderboard"));
-        Assert.assertFalse(action.checkPageElement("Gift History"));
         txtEventDetail.click();
         Thread.sleep(1500);
         action.checkTextCountains("About event");
@@ -533,7 +727,6 @@ public class LivePage extends BaseUtil {
         action.checkTextCountains("Copy Link");
         btnMore.click();
         Thread.sleep(1500);
-        //action.checkTextCountains(EventTitle);
         action.androidBack();
         txtCopyLink.click();
         Thread.sleep(1000);
@@ -549,7 +742,7 @@ public class LivePage extends BaseUtil {
 
     public void checkReminderFunction()throws InterruptedException{
         action.waitUntiElementPresent(By.id(liveBanner));
-        action.scroToElement("GoPlay Exclusive");
+        txtScheduled.click();
         btnReminder.click();
         Thread.sleep(1000);
         Assert.assertTrue(btnReminder.isSelected());
@@ -567,17 +760,10 @@ public class LivePage extends BaseUtil {
 //        Assert.assertTrue(btnReminder.isSelected());
 //        btnReminder.click();
 //        Assert.assertFalse(btnReminder.isSelected());
-        action.scroToElement("Add to Your Calendar");
-        btnReminder.click();
-        Thread.sleep(1000);
-        Assert.assertTrue(btnReminder.isSelected());
-        btnReminder.click();
-        Assert.assertFalse(btnReminder.isSelected());
     }
 
     public void checkTodayLiveEvent()throws InterruptedException{
         btnShareMarketing.isDisplayed();
-        btnRemindMeMarketing.isDisplayed();
         String EventTitle= txtEventTitle.getText();
         txtGiftHistory.isDisplayed();
         txtLeaderboard.isDisplayed();
@@ -600,19 +786,24 @@ public class LivePage extends BaseUtil {
         //action.checkTextCountains(EventTitle);
         action.androidBack();
         txtCopyLink.click();
-        Thread.sleep(1000);
-        action.checkTextCountains("Link copied.");
         action.androidBack();
-        btnRemindMeMarketing.click();
-        Thread.sleep(1000);
-        action.checkTextCountains("Reminder On");
-        btnRemindMeMarketing.click();
-        Thread.sleep(1000);
-        action.checkTextCountains("Remind Me");
         btnGift.click();
         Thread.sleep(1000);
-        action.checkTextCountains("Choose a virtual gift");
+        action.checkTextCountains("Send virtual gift");
         action.androidBack();
+    }
+
+    public void shareEventtoWhatsapp()throws InterruptedException{
+        btnShareMarketing.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Suggest this to friends");
+        action.checkTextCountains("IG Story");
+        action.checkTextCountains("WhatsApp");
+        action.checkTextCountains("Twitter");
+        action.checkTextCountains("Copy Link");
+        txtSosmedWhatsapp.click();
+        txtOpenWhatsapp.click();
+        infoContainerWhatsapp.isDisplayed();
     }
 
     public void checkSwitchGroup() throws InterruptedException{
@@ -620,8 +811,6 @@ public class LivePage extends BaseUtil {
         btnSwitchGroup.click();
         action.checkTextCountains("Chat in group..");
         action.checkTextCountains("Create a room to chat privately");
-        Assert.assertFalse(action.checkPageElement("Leaderboard"));
-        Assert.assertFalse(action.checkPageElement("Gift History"));
         btnJoinGroup.click();
         inputGroupName.sendKeys("TestingGroup");
         btnSubmitJoinGroup.click();
@@ -639,18 +828,168 @@ public class LivePage extends BaseUtil {
     }
 
     public void checkRecordedEvent() throws InterruptedException{
-        action.checkTextCountains("Recorded Live Shows");
-        bannerRecordedShow.click();
-        btnPlayNow.isDisplayed();
-        action.checkTextCountains("Share to IG");
-        action.checkTextCountains("Cast");
-        action.checkTextCountains("Director");
-        action.checkTextCountains("Writer");
-        action.checkTextCountains("GoPlay");
-        btnPlayNow.click();
-        frameVideoPlay.isDisplayed();
-        action.androidBack();
-        btnPlayNow.isDisplayed();
+        Thread.sleep(1500);
+        btnPlayPause.click();
+        infoRecordedStreamerName.isDisplayed();
+        infoRecordedStreamerCOunt.isDisplayed();
+        infoRecordedGenre.isDisplayed();
+        infoRecordedDate.isDisplayed();
+        infoRecordedTitle.isDisplayed();
+        infoRecordedDesc.isDisplayed();
+        btnSeekBar.isDisplayed();
+        btnSeekLeft.isDisplayed();
+        btnSeekRight.isDisplayed();
+        btnPlayPause.isDisplayed();
     }
+
+    public void checkPerformerProfileFromRecorded() {
+        infoRecordedStreamerName.click();
+        btnFollow.isDisplayed();
+        action.checkTextCountains("Upcoming live shows");
+//        bannerProfileTwo.click();
+//        btnCloseEventDetail.click();
+        btnFollow.isDisplayed();
+        btnBackProfilePage.click();
+        txtScheduled.isDisplayed();
+    }
+
+    public void checkFilterEvent() {
+        action.waitUntiElementPresent(By.id(liveBanner));
+        String title1 = infoTitle.getText();
+        txtGenreMusic.click();
+        String title2 = infoTitle.getText();
+        Assert.assertNotEquals(title1,title2);
+        txtGenreMusic.isSelected();
+    }
+
+    public void checkRemoveFilter() {
+        action.waitUntiElementPresent(By.id(liveBanner));
+        String title1 = infoTitle.getText();
+        btnClearFilter.click();
+        String title2 = infoTitle.getText();
+        Assert.assertNotEquals(title1,title2);
+    }
+
+    public void checkFilterandRemoveInScheduled() {
+        txtScheduled.click();
+        action.waitUntiElementPresent(By.id(liveBanner));
+        txtGenreMusic.click();
+        txtGenreMusic.isSelected();
+        btnClearFilter.click();
+    }
+
+    public void checkFilterGaming() {
+        action.waitUntiElementPresent(By.id(liveBanner));
+        txtGenreChitChat.click();
+        String title1 = infoTitle.getText();
+        txtGenreMusic.click();
+        String title2 = infoTitle.getText();
+//        Assert.assertNotEquals(title1,title2);
+        txtGenreMusic.isSelected();
+        txtGenreChitChat.click();
+    }
+
+    public void scrollToBottom()throws InterruptedException {
+        String title1 = infoTitle.getText();
+        action.scrollAndClick("Back to top");
+        Thread.sleep(1500);
+        String title2 = infoTitle.getText();
+        Assert.assertEquals(title1,title2);
+    }
+
+    public void goToScheduledTab() {
+        txtScheduled.click();
+    }
+
+    public void goToPerformerProfileAndVerify() throws InterruptedException {
+        Thread.sleep(1500);
+        txtGenreChitChat.click();
+        txtGenreChitChat.click();
+//        btnClearFilter.click();
+//        txtGenreGaming.click();
+        String PerformerName1= infoPerformerName.getText();
+        infoPerformerName.click();
+        String PerformerName2= txtProfileNameProfile.getText();
+        Assert.assertEquals(PerformerName1,PerformerName2);
+        btnProfileShare.isDisplayed();
+        imgProfile.isDisplayed();
+        txtProfileLikesCount.isDisplayed();
+        txtProfileUsername.isDisplayed();
+        txtProfileNumberFollower.isDisplayed();
+        btnFollow.isDisplayed();
+        action.checkTextCountains("Upcoming live shows");
+        action.androidBack();
+    }
+
+    public void checkPosterComponent() {
+        action.waitUntiElementPresent(By.id(liveBanner));
+        infoGenre.isDisplayed();
+        infoTitle.isDisplayed();
+        btnProfile.isDisplayed();
+        infoPerformerName.isDisplayed();
+        infoAmountLikes.isDisplayed();
+    }
+
+    public void checkDirectionHeaderLive()throws InterruptedException {
+        action.waitUntiElementPresent(By.id(liveBanner));
+        btnNotification.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Inbox");
+        action.androidBack();
+        btnSearch.click();
+        inputSearchText.isDisplayed();
+        action.androidBack();
+        btnTokenLive.click();
+        txtTokenBalance.isDisplayed();
+        action.androidBack();
+
+    }
+
+    public void changeResolution(){
+        btnActionSetting.click();
+        txtResolution240.click();
+        btnActionSetting.click();
+        txtResolution360.click();
+        btnActionSetting.click();
+        txtResolution720.click();
+    }
+
+    public void checkFollowUnfollowEventDetail()throws InterruptedException {
+        btnFollow.click();
+        Thread.sleep(1000);
+        String followText= btnFollow.getText();
+        infoRecordedStreamerName.click();
+        String followText2= btnFollowModal.getText();
+        Assert.assertEquals(followText,followText2);
+        btnFollowModal.click();
+        Thread.sleep(1000);
+        String followTextNEW2= btnFollowModal.getText();
+        btnDismissCardGift.click();
+        String followTextNEW= btnFollow.getText();
+        Assert.assertEquals(followText,followText2);
+    }
+
+    public void checkFollowUnfollowRecordedEvent()throws InterruptedException {
+        btnFollow.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Following");
+        btnCloseLive.click();
+        txtWasLiveIndicator.click();
+        btnFollow.isDisplayed();
+        action.checkTextCountains("Following");
+        btnFollow.click();
+        Thread.sleep(1000);
+        action.checkTextCountains("Follow");
+        btnCloseLive.click();
+        txtWasLiveIndicator.click();
+        btnFollow.isDisplayed();
+        action.checkTextCountains("Follow");
+    }
+
+    public void openLiveFromProfilePict() {
+        txtLiveProfile.isDisplayed();
+        imgProfile.click();
+    }
+
 
 }

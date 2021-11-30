@@ -55,6 +55,4 @@ public class LoginStep extends BaseUtil {
         page.userDoLogin();
     }
 
-
-
 }

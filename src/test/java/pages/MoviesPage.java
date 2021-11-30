@@ -24,7 +24,7 @@ public class MoviesPage extends BaseUtil {
     @AndroidFindBy(id = "feed_item_image")
     public MobileElement bannerMovie;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Movies and Series']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Movies & series']")
     public MobileElement txtMovies;
 
     @AndroidFindBy(id = "ivDownloadState")
@@ -33,7 +33,7 @@ public class MoviesPage extends BaseUtil {
     @AndroidFindBy(id = "iv_avod_banner")
     public static MobileElement infoSubscribe;
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Reply 1988']")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Cerita Dari Manggarai']")
     public static MobileElement imgMovieReply1998;
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Berkunjung ke Himalaya']")
@@ -42,8 +42,8 @@ public class MoviesPage extends BaseUtil {
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='The Most Beautiful Goodbye']")
     public static MobileElement imgMovieGoodbye;
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Train to Busan']")
-    public static MobileElement imgMovieTrainToBusan;
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Parasite']")
+    public static MobileElement imgMovieParasite;
 
     @AndroidFindBy(id = "button_contact_customer_care")
     public static MobileElement btnAddAccess;
@@ -92,7 +92,7 @@ public class MoviesPage extends BaseUtil {
         LivePage.btnPlayNow.isDisplayed();
         action.checkTextCountains("Share to IG");
         LivePage.btnPlayNow.click();
-        Assert.assertFalse(action.checkPageElement("Share to IG"));
+        Assert.assertFalse(action.checkPageSource("Share to IG"));
         action.androidBack();
         LivePage.btnPlayNow.isDisplayed();
         action.scroToElement("More like this");
@@ -106,7 +106,7 @@ public class MoviesPage extends BaseUtil {
         action.checkTextCountains("Cast");
         action.checkTextCountains("Director");
         LivePage.btnPlayNow.click();
-        Assert.assertFalse(action.checkPageElement("Share to IG"));
+        Assert.assertFalse(action.checkPageSource("Share to IG"));
         action.androidBack();
         LivePage.btnPlayNow.isDisplayed();
     }
@@ -118,7 +118,7 @@ public class MoviesPage extends BaseUtil {
         action.checkTextCountains("Cast");
         action.checkTextCountains("Director");
         LivePage.btnPlayNow.click();
-        Assert.assertFalse(action.checkPageElement("Share to IG"));
+        Assert.assertFalse(action.checkPageSource("Share to IG"));
         action.androidBack();
         LivePage.btnPlayNow.isDisplayed();
         action.scroToElement("More like this");
@@ -126,8 +126,8 @@ public class MoviesPage extends BaseUtil {
     }
 
     public void checkPaidMovie() {
-        action.swipeByElements(imageMovie3,imageMovie1);
-        imgMovieTrainToBusan.click();
+//        action.swipeByElements(imageMovie3,imageMovie1);
+        imgMovieParasite.click();
         LivePage.btnPlayNow.isDisplayed();
         action.checkTextCountains("Share to IG");
         action.checkTextCountains("Cast");
@@ -137,7 +137,6 @@ public class MoviesPage extends BaseUtil {
         action.checkTextCountains("You don’t have a GoPlay access, yet");
         action.checkTextCountains("To start watching, you will need to purchase a GoPlay access first.");
         btnAddAccess.click();
-        //LivePage.btnOnce.click();
         btnManageSubs.isDisplayed();
         btnCloseSubsPage.click();
         LivePage.btnPlayNow.isDisplayed();

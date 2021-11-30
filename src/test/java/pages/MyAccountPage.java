@@ -96,9 +96,8 @@ public class MyAccountPage extends BaseUtil {
     @AndroidFindBy(id = "promo_code_input")
     public MobileElement inputPromoCode;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout" +
-            "/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/" +
-            "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.TextView[2]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/" +
+            "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]/android.widget.TextView[2]")
     public MobileElement txtTokenValueMyAccount;
 
     @AndroidFindBy(id = "balance_field")
@@ -119,8 +118,14 @@ public class MyAccountPage extends BaseUtil {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='GOPLAY-DEV']")
     public static MobileElement txtGoplayDEV;
 
+    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc='Navigate up']")
+    public static MobileElement btnNavigateBack;
+
     @AndroidFindBy(id = "button_once")
     public MobileElement btnOnce;
+
+    @AndroidFindBy(id = "com.goplay.android:id/web_view")
+    public MobileElement txtWebview;
 
 
 
@@ -194,10 +199,9 @@ public class MyAccountPage extends BaseUtil {
         action.checkTextCountains("Current balance");
         action.checkTextCountains("History");
         btnHowGetToken.click();
-        txtEarnMoreToken.isDisplayed();
-        action.checkTextCountains("How to use token to send Virtual Gifts");
-        action.androidBack();
-        action.androidBack();
+//        btnNavigateBack.isDisplayed();
+//        action.androidBack();
+//        action.androidBack();
     }
 
 

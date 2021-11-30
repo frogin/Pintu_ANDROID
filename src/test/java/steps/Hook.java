@@ -3,6 +3,8 @@ package steps;
 import Base.BaseUtil;
 import Base.RestAssuredExtension;
 import io.cucumber.java.*;
+import org.openqa.selenium.By;
+
 import java.io.IOException;
 
 public class Hook extends BaseUtil{
@@ -16,8 +18,9 @@ public class Hook extends BaseUtil{
     @Before
     public void setUp() throws IOException, InterruptedException {
         System.out.println("HOOK BEFORE");
-        setupAppium("cloudURL");
+        setupAppium("localURL");
         getPackage();
+        //driver.findElement(By.id("com.android.vending:id/0_resource_name_obfuscated")).click();
     }
 
 

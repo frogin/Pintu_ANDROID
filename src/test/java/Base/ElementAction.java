@@ -46,9 +46,13 @@ public class ElementAction extends BaseUtil {
 
     public boolean checkPageElement(String text) {
         driver.getPageSource().contains(text);
-        return false;
+        return true;
     }
 
+    public boolean checkPageSource(String text) {
+        driver.getPageSource().contains(text);
+        return false;
+    }
 
     public void checkTextCountains(String text) {
         if(driver.getPageSource().contains(text))
