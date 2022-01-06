@@ -115,7 +115,7 @@ Feature: Live Feature
 
   Scenario: User check marketing event from Loket
     Given I open Marketing event
-    And   I verify all element on marketing page
+    And   I verify all element on marketing page Verify back to top function is working properly
 
 
   Scenario: User check reminder functionality
@@ -154,7 +154,7 @@ Feature: Live Feature
     And   I remove filter and verify the result
 #    Then  I do filter and Remove in Scheduled
 
-  @Live
+
   Scenario: Verify back to top function is working properly
     Given I do gaming filter and verify the result
     Then  I do scroll to latest event and click back to top to verify the result

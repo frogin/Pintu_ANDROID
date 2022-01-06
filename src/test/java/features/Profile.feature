@@ -3,7 +3,10 @@ Feature: Profile Feature
 
   @Profile
   Scenario: Verify user able to follow/unfollow
-    Given I open performer profile page
+    Given I Go to search page
+    And   I type for "Rumah Kreatif Musikindo"
+    And   I should see in Streamer column
+    Then  I click to open their profile
     And   Follow performer to check the functionality
     Then  Unfollow performer to check the functionality
 

@@ -65,20 +65,20 @@ public class BaseUtil {
                 /* Use Cloud Server */
                 case "cloudURL":
                     // Set your access credentials
-                    capabilities.setCapability("browserstack.user", "pramod228");
-                    capabilities.setCapability("browserstack.key", "uHVi2pss6A7AZuLsjwnA");
+                    capabilities.setCapability("browserstack.user", "rahmatzailani_nNORfs");
+                    capabilities.setCapability("browserstack.key", "vssz8kgHJaxekx695RNS");
 
                     // Set URL of the application under test
-                    capabilities.setCapability("app", "bs://20790b7661bb499f96afae5dba529a52be716634");
+                    capabilities.setCapability("app", "bs://97ed92bf3f142df76b49eed0f9ecfdcd3d538d12");
 
                     // Specify device and os_version for testing
                     capabilities.setCapability("device", "Google Pixel 3a XL");
                     capabilities.setCapability("os_version", "9.0");
 
                     // Set other BrowserStack capabilities
-                    capabilities.setCapability("project", "CUCUMBER STAGING");
-                    capabilities.setCapability("build", "Java Android");
-                    capabilities.setCapability("name", "Go_Cucumber");
+                    capabilities.setCapability("project", "GOPLAY");
+                    capabilities.setCapability("build", "GOPLAY ANDROID");
+                    capabilities.setCapability("name", "Testcase Android");
                     driver = new AndroidDriver<MobileElement>(
                             new URL("http://hub.browserstack.com/wd/hub"), capabilities);
 
