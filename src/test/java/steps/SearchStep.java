@@ -106,5 +106,6 @@ public class SearchStep extends BaseUtil {
         SearchPage page = new SearchPage(driver);
         page.checkDirectionToMovieDetail();
     }
+
 }
 

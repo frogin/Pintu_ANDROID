@@ -460,7 +460,7 @@ public class LivePage extends BaseUtil {
     }
 
     public void openTodayLiveEvent() {
-        checkBannerPopUp();
+        //checkBannerPopUp();
         action.waitUntiElementPresent(By.id(liveBanner));
         txtScheduled.click();
         bannerTodayEvent.click();
@@ -802,6 +802,7 @@ public class LivePage extends BaseUtil {
         action.checkTextCountains("Twitter");
         action.checkTextCountains("Copy Link");
         txtSosmedWhatsapp.click();
+        Thread.sleep(1000);
         txtOpenWhatsapp.click();
         infoContainerWhatsapp.isDisplayed();
     }
@@ -855,8 +856,9 @@ public class LivePage extends BaseUtil {
 
     public void checkFilterEvent() {
         action.waitUntiElementPresent(By.id(liveBanner));
+        txtForYou.click();
         String title1 = infoTitle.getText();
-        txtGenreMusic.click();
+        txtGenreChitChat.click();
         String title2 = infoTitle.getText();
         Assert.assertNotEquals(title1,title2);
         txtGenreMusic.isSelected();

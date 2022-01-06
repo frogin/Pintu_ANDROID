@@ -65,3 +65,4 @@ Feature: Search Feature
     Then  I should see in Movies column
     Then  I click to open movie detail
 
+
