@@ -14,7 +14,7 @@ import org.testng.Assert;
 
 
 public class LivePage extends BaseUtil {
-
+//test aja
 
     ElementAction action = new ElementAction();
 
@@ -488,7 +488,7 @@ public class LivePage extends BaseUtil {
 
     public void openTopWatchedShow() {
         action.waitUntiElementPresent(By.id(liveBanner));
-        txtGenreMusic.click();
+        //txtGenreMusic.click();
         action.scroToElement("WAS LIVE");
         txtWasLiveIndicator.click();
         action.waitUntiElementPresent(By.id(RecordedEvent));
@@ -861,7 +861,7 @@ public class LivePage extends BaseUtil {
         txtGenreChitChat.click();
         String title2 = infoTitle.getText();
         Assert.assertNotEquals(title1,title2);
-        txtGenreMusic.isSelected();
+        //txtGenreMusic.isSelected();
     }
 
     public void checkRemoveFilter() {

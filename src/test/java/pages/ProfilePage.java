@@ -96,10 +96,10 @@ public class ProfilePage extends BaseUtil {
         posterEvent.isDisplayed();
         btnSeeAll.click();
         LivePage.btnReminder.isDisplayed();
-        action.checkTextCountains("Rumah Kreatif Musikindo's upcoming live shows");
+        action.checkTextCountains("GoPlay's upcoming live shows");
         posterEvent.click();
         LivePage.txtEventDetail.isDisplayed();
-        action.checkTextCountains("Rumah Kreatif Musikindo");
+        action.checkTextCountains("GoPlay");
         LivePage.btnCloseEventDetail.click();
         btnCloseSeeAll.click();
         txtViewerCount.click();
