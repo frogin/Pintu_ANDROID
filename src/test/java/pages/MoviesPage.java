@@ -34,7 +34,7 @@ public class MoviesPage extends BaseUtil {
     public static MobileElement infoSubscribe;
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Cerita Dari Manggarai']")
-    public static MobileElement imgMovieReply1998;
+    public static MobileElement imgCeritaDariManggarai;
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Berkunjung ke Himalaya']")
     public static MobileElement imgMovieHimalaya;
@@ -100,7 +100,7 @@ public class MoviesPage extends BaseUtil {
     }
 
     public void checkMovieDetailPageWithFreeAll() {
-        imgMovieReply1998.click();
+        imgCeritaDariManggarai.click();
         LivePage.btnPlayNow.isDisplayed();
         action.checkTextCountains("Share to IG");
         action.checkTextCountains("Cast");
