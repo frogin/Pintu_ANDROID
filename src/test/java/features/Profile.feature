@@ -1,5 +1,5 @@
 Feature: Profile Feature
-  This feature is to check all functionality in performer profile
+  This feature is to check all functionality in performer profile #updated
 
   @Profile
   Scenario: Verify user able to follow/unfollow
