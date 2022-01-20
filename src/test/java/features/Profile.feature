@@ -1,10 +1,10 @@
 Feature: Profile Feature
-  This feature is to check all functionality in performer profile
+  This feature is to check all functionality in performer profile #updated
 
   @Profile
   Scenario: Verify user able to follow/unfollow
     Given I Go to search page
-    And   I type for "Rumah Kreatif Musikindo"
+    And   I type for "GoPlay"
     And   I should see in Streamer column
     Then  I click to open their profile
     And   Follow performer to check the functionality
@@ -26,7 +26,7 @@ Feature: Profile Feature
   @Profile
   Scenario: Verify if profile have many upcoming and recorded event
     Given I Go to search page
-    And   I type for "Rumah Kreatif Musikindo"
+    And   I type for "GoPlay"
     And   I should see in Streamer column
     And   I click to open their profile
     Then  I see all upcoming and recorded event
