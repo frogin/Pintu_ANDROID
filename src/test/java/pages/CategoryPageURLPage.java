@@ -20,10 +20,15 @@ public class CategoryPageURLPage extends BaseUtil {
     public MobileElement category3;
     @AndroidFindBy(id = "clear_filter_button")
     public MobileElement clearFilterButton;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='WATCH NOW']")
-    public MobileElement tabWatchNow;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='SCHEDULED']")
-    public MobileElement tabScheduled;
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Watch now\"]/android.widget.TextView")
+    public MobileElement tabWatchNowEN;
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Scheduled\"]/android.widget.TextView")
+    public MobileElement tabScheduledEN;
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Nonton sekarang\"]/android.widget.TextView")
+    public MobileElement tabWatchNowID;
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Segera\"]/android.widget.TextView")
+    public MobileElement tabScheduledID;
+
 
     @AndroidFindBy(xpath = "//android.widget.Button[@text='#wcbw']")
     public  MobileElement categoryWCBW;
@@ -84,10 +89,20 @@ public class CategoryPageURLPage extends BaseUtil {
     }
 
     public void VerifyWatchNowOpened(){
-        assertTrue(tabWatchNow.isSelected());
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        try {
+            assertTrue(tabWatchNowEN.isSelected());
+        }catch (Exception e){
+            assertTrue(tabWatchNowID.isSelected());
+        }
     }
     public void VerifyScheduledOpened(){
-        assertTrue(tabScheduled.isSelected());
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        try {
+            assertTrue(tabScheduledEN.isSelected());
+        }catch (Exception e){
+            assertTrue(tabScheduledID.isSelected());
+        }
     }
 
     public void VerifySelectedCategory(){
