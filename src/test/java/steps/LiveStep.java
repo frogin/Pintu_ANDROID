@@ -155,13 +155,13 @@ public class LiveStep extends BaseUtil {
     }
 
     @Then("I check streamer profile from recorded")
-    public void iCheckStreamerProfileFromRecorded() {
+    public void iCheckStreamerProfileFromRecorded() throws InterruptedException {
         LivePage page = new LivePage(driver);
         page.checkPerformerProfileFromRecorded();
     }
 
     @Given("I do filter and verify the result")
-    public void iDoFilterAndVerifyTheResult() {
+    public void iDoFilterAndVerifyTheResult() throws InterruptedException {
         LivePage page = new LivePage(driver);
         page.checkFilterEvent();
     }

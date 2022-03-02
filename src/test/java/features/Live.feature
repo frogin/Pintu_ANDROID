@@ -86,15 +86,15 @@ Feature: Live Feature
     And   I send gift to performer
     Then `I ended live should go back to homepage
 
-  @Live
-  Scenario: User send gift to performer with gopay
-    Given I open live event
-    Then   I send gift to performer with gopay
-
-  @Live
-  Scenario: User send gift to performer with Credit card
-    Given I open live event
-    Then  I send gift to performer with credit card
+#  @Live
+#  Scenario: User send gift to performer with gopay
+#    Given I open live event
+#    Then   I send gift to performer with gopay
+#
+#  @Live
+#  Scenario: User send gift to performer with Credit card
+#    Given I open live event
+#    Then  I send gift to performer with credit card
 
   @Staging
   Scenario: User send gift to performer Staging

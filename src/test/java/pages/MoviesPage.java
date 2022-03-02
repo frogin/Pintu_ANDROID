@@ -8,8 +8,12 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import static org.testng.AssertJUnit.assertFalse;
+
 import pages.LivePage;
 import steps.APISupport;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class MoviesPage extends BaseUtil {
@@ -44,6 +48,9 @@ public class MoviesPage extends BaseUtil {
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Parasite']")
     public static MobileElement imgMovieParasite;
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Miracle: Letters To The President']")
+    public static MobileElement imgMovieMiracle;
 
     @AndroidFindBy(id = "button_contact_customer_care")
     public static MobileElement btnAddAccess;
@@ -100,6 +107,7 @@ public class MoviesPage extends BaseUtil {
     }
 
     public void checkMovieDetailPageWithFreeAll() {
+        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+"Top K-movies from tvN"+"\").instance(0))");
         imgCeritaDariManggarai.click();
         LivePage.btnPlayNow.isDisplayed();
         action.checkTextCountains("Share to IG");
@@ -126,8 +134,9 @@ public class MoviesPage extends BaseUtil {
     }
 
     public void checkPaidMovie() {
+        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+"Top K-movies from tvN"+"\").instance(0))");
 //        action.swipeByElements(imageMovie3,imageMovie1);
-        imgMovieParasite.click();
+        imgMovieMiracle.click();
         LivePage.btnPlayNow.isDisplayed();
         action.checkTextCountains("Share to IG");
         action.checkTextCountains("Cast");

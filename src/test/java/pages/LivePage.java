@@ -133,14 +133,20 @@ public class LivePage extends BaseUtil {
     @AndroidFindBy(id = "recommendation_image_container")
     public MobileElement bannerRecommendation;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
-            "android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup[2]/" +
-            "androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.FrameLayout")
+//    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
+//            "android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup[2]/" +
+//            "androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.FrameLayout")
+//    public MobileElement bannerRecommendation2;
+//
+//    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
+//            "android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup[2]/" +
+//            "androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.FrameLayout")
+//    public MobileElement bannerRecommendation3;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.TextView[1]")
     public MobileElement bannerRecommendation2;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
-            "android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup[2]/" +
-            "androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.FrameLayout")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.TextView[1]")
     public MobileElement bannerRecommendation3;
 
     @AndroidFindBy(id = "schedule_title")
@@ -367,6 +373,9 @@ public class LivePage extends BaseUtil {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='GoPlay Mask']")
     public MobileElement txtGoplayMask;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Itadakimas!']")
+    public MobileElement txtItadakimas;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Agreeeeeee']")
     public MobileElement txtAgree;
 
@@ -394,6 +403,12 @@ public class LivePage extends BaseUtil {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Indonesia']")
     public MobileElement txtIndonsia;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Japan']")
+    public MobileElement txtJapan;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Food']")
+    public MobileElement txtFood;
+
     @AndroidFindBy(id = "com.goplay.android:id/button_primary")
     public MobileElement btnPayGopay;
 
@@ -418,12 +433,21 @@ public class LivePage extends BaseUtil {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='WhatsApp']")
     public MobileElement txtOpenWhatsapp;
 
-    @AndroidFindBy(id = "com.whatsapp:id/contactpicker_row_name")
+//    @AndroidFindBy(id = "com.whatsapp:id/contactpicker_row_name")
+//    public MobileElement infoContainerWhatsapp;
+
+    @AndroidFindBy(id = "com.whatsapp:id/toolbar")
     public MobileElement infoContainerWhatsapp;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/" +
-            "android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.Button")
+//    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/" +
+//            "android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.Button")
+//    public MobileElement btnFollowModal;
+
+    @AndroidFindBy(id = "btn_follow")
     public MobileElement btnFollowModal;
+
+    @AndroidFindBy(id = "tv_title")
+    public MobileElement btnSendVG;
 
     public void checkBannerPopUp() {
         if (driver.getPageSource().contains(PopUpBanner)){
@@ -544,8 +568,9 @@ public class LivePage extends BaseUtil {
     public void closeLiveEvent()  {
         //btnCloseLive.click();
         action.androidBack();
-        btnDialogYES.click();
-        btnProfile.isDisplayed();
+//        After implement swipe up changes, no need exit confirmation to exit
+//        btnDialogYES.click();
+//        btnProfile.isDisplayed();
     }
 
     public void checkPerformerProfileFromLive() {
@@ -572,14 +597,17 @@ public class LivePage extends BaseUtil {
         Thread.sleep(2000);
         action.swipeByElements(btnGuideTooltip,txtGiftHistory);
         bannerRecommendation.click();
-        txtGiftHistory.isDisplayed();
-        txtLeaderboard.isDisplayed();
-        action.swipeByElements(btnGuideTooltip,txtGiftHistory);
-        bannerRecommendation3.click();
+        Thread.sleep(2000);
         txtGiftHistory.isDisplayed();
         txtLeaderboard.isDisplayed();
         action.swipeByElements(btnGuideTooltip,txtGiftHistory);
         bannerRecommendation2.click();
+        Thread.sleep(2000);
+        txtGiftHistory.isDisplayed();
+        txtLeaderboard.isDisplayed();
+        action.swipeByElements(btnGuideTooltip,txtGiftHistory);
+        bannerRecommendation3.click();
+        Thread.sleep(2000);
         txtGiftHistory.isDisplayed();
         txtLeaderboard.isDisplayed();
     }
@@ -613,23 +641,26 @@ public class LivePage extends BaseUtil {
         btnGift.click();
         Thread.sleep(1000);
         action.checkTextCountains("Send virtual gift");
-        action.checkTextCountains("All");
-        action.checkTextCountains("Shout");
-        action.checkTextCountains("Food");
-        action.checkTextCountains("Next");
-        action.checkTextCountains("Indonesia");
-        action.checkTextCountains("Japan");
+//        action.checkTextCountains("All");
+//        action.checkTextCountains("Shout");
+//        action.checkTextCountains("Food");
+//        action.checkTextCountains("Next");
+//        action.checkTextCountains("Indonesia");
+//        action.checkTextCountains("Japan");
         action.checkTextCountains("Support " +performerName+ " by sending virtual gift to encourage them creating more content like this!");
-        txtIndonsia.click();
-        txtGoplayMask.click();
-        btnNext.click();
-        btnPayToken.click();
+//        txtIndonsia.click();
+//        txtGoplayMask.click();
+//        btnPayToken.click();
+//        btnNext.click();
+        txtFood.click();
+        txtItadakimas.click();
+        btnSendVG.click();
         btnConfirmGift.isDisplayed();
         Thread.sleep(1000);
-        action.checkTextCountains("10 Tokens");
+        action.checkTextCountains("9 Tokens");
         btnDismissCardGift.click();
         Thread.sleep(1000);
-        action.checkTextCountains("sent GoPlay Mask");
+        action.checkTextCountains("sent Itadakimas!");
     }
 
     public void checkSendGiftWithGopay()throws InterruptedException{
@@ -803,8 +834,8 @@ public class LivePage extends BaseUtil {
         action.checkTextCountains("Copy Link");
         txtSosmedWhatsapp.click();
         Thread.sleep(1000);
-        txtOpenWhatsapp.click();
         infoContainerWhatsapp.isDisplayed();
+        action.androidBack();
     }
 
     public void checkSwitchGroup() throws InterruptedException{
@@ -843,8 +874,9 @@ public class LivePage extends BaseUtil {
         btnPlayPause.isDisplayed();
     }
 
-    public void checkPerformerProfileFromRecorded() {
+    public void checkPerformerProfileFromRecorded() throws InterruptedException {
         infoRecordedStreamerName.click();
+        Thread.sleep(2000);
         btnFollow.isDisplayed();
         action.checkTextCountains("Upcoming live shows");
 //        bannerProfileTwo.click();
@@ -854,11 +886,13 @@ public class LivePage extends BaseUtil {
         txtScheduled.isDisplayed();
     }
 
-    public void checkFilterEvent() {
+    public void checkFilterEvent() throws InterruptedException {
         action.waitUntiElementPresent(By.id(liveBanner));
         txtForYou.click();
+        Thread.sleep(2000);
         String title1 = infoTitle.getText();
         txtGenreChitChat.click();
+        Thread.sleep(2000);
         String title2 = infoTitle.getText();
         Assert.assertNotEquals(title1,title2);
         //txtGenreMusic.isSelected();
@@ -966,6 +1000,7 @@ public class LivePage extends BaseUtil {
         btnFollowModal.click();
         Thread.sleep(1000);
         String followTextNEW2= btnFollowModal.getText();
+        Thread.sleep(2000);
         btnDismissCardGift.click();
         String followTextNEW= btnFollow.getText();
         Assert.assertEquals(followText,followText2);
