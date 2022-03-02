@@ -2,10 +2,12 @@ package pages;
 
 import Base.BaseUtil;
 import Base.ElementAction;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import java.util.concurrent.TimeUnit;
 import static org.testng.AssertJUnit.assertFalse;
@@ -70,9 +72,27 @@ public class CategoryPageURLPage extends BaseUtil {
     public  MobileElement categoryAudition;
     @AndroidFindBy(xpath = "//android.widget.Button[@text='Buddha']")
     public  MobileElement categoryBuddha;
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='Movie']")
+    public  MobileElement categoryMovie;
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='Education']")
+    public  MobileElement categoryEducation;
 
     public CategoryPageURLPage(AndroidDriver<MobileElement> driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
+
+    // Masih tahap finishing, belum digunakan
+    public void ScrollToFind(){
+        try {
+//            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textMatches(\"" + "Audition" + "\").instance(0));"));
+              driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)."
+                    + "resourceId(\"com.goplay.android:id/filter_recycler\"))"
+                    + ".setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"Kristen\"))");
+            System.out.println("berhasil cari");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("gagal cari");
+        }
     }
 
     public void CategoryPageURLWithoutTag() {
@@ -120,16 +140,16 @@ public class CategoryPageURLPage extends BaseUtil {
             assertFalse(categoryWCBW.isSelected());
         }
         try {
-            assertFalse(categoryChitchat.isSelected());
+            assertFalse(categoryAudition.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
-            assertFalse(categoryChitchat.isSelected());
+            assertFalse(categoryAudition.isSelected());
         }
         try {
-            assertFalse(categoryAudition.isSelected());
+            assertFalse(categoryChitchat.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
-            assertFalse(categoryAudition.isSelected());
+            assertFalse(categoryChitchat.isSelected());
         }
         try {
             assertTrue(categoryTalkshow.isSelected());
@@ -138,28 +158,28 @@ public class CategoryPageURLPage extends BaseUtil {
             assertTrue(categoryTalkshow.isSelected());
         }
         try {
-            assertFalse(categoryFood.isSelected());
-        }catch(Exception e){
-            action.swipeByElements(category3, category1);
-            assertFalse(categoryFood.isSelected());
-        }
-        try {
             assertFalse(categoryMusic.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
             assertFalse(categoryMusic.isSelected());
         }
         try {
-            assertFalse(categoryIslam.isSelected());
+            assertFalse(categoryFood.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
-            assertFalse(categoryIslam.isSelected());
+            assertFalse(categoryFood.isSelected());
         }
         try {
             assertFalse(categoryGaming.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
             assertFalse(categoryGaming.isSelected());
+        }
+        try {
+            assertFalse(categoryIslam.isSelected());
+        }catch(Exception e){
+            action.swipeByElements(category3, category1);
+            assertFalse(categoryIslam.isSelected());
         }
         try {
             assertFalse(categoryKatolik.isSelected());
@@ -174,10 +194,22 @@ public class CategoryPageURLPage extends BaseUtil {
             assertFalse(categoryKristen.isSelected());
         }
         try {
-            assertFalse(categoryGameshow.isSelected());
+            assertFalse(categoryHindu.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
-            assertFalse(categoryGameshow.isSelected());
+            assertFalse(categoryHindu.isSelected());
+        }
+        try {
+            assertFalse(categoryBuddha.isSelected());
+        }catch(Exception e){
+            action.swipeByElements(category3, category1);
+            assertFalse(categoryBuddha.isSelected());
+        }
+        try {
+            assertFalse(categoryWebinar.isSelected());
+        }catch(Exception e){
+            action.swipeByElements(category3, category1);
+            assertFalse(categoryWebinar.isSelected());
         }
         try {
             assertFalse(categoryHorror.isSelected());
@@ -186,16 +218,22 @@ public class CategoryPageURLPage extends BaseUtil {
             assertFalse(categoryHorror.isSelected());
         }
         try {
-            assertFalse(categorySports.isSelected());
+            assertFalse(categoryMovie.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
-            assertFalse(categorySports.isSelected());
+            assertFalse(categoryMovie.isSelected());
         }
         try {
-            assertFalse(categoryBuddha.isSelected());
+            assertFalse(categoryEducation.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
-            assertFalse(categoryBuddha.isSelected());
+            assertFalse(categoryEducation.isSelected());
+        }
+        try {
+            assertFalse(categoryClass.isSelected());
+        }catch(Exception e){
+            action.swipeByElements(category3, category1);
+            assertFalse(categoryClass.isSelected());
         }
         try {
             assertFalse(categoryNews.isSelected());
@@ -210,28 +248,22 @@ public class CategoryPageURLPage extends BaseUtil {
             assertFalse(categoryComedy.isSelected());
         }
         try {
-            assertFalse(categoryClass.isSelected());
-        }catch(Exception e){
-            action.swipeByElements(category3, category1);
-            assertFalse(categoryClass.isSelected());
-        }
-        try {
             assertTrue(categoryBeauty.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
             assertTrue(categoryBeauty.isSelected());
         }
         try {
-            assertFalse(categoryHindu.isSelected());
+            assertFalse(categorySports.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
-            assertFalse(categoryHindu.isSelected());
+            assertFalse(categorySports.isSelected());
         }
         try {
-            assertFalse(categoryWebinar.isSelected());
+            assertFalse(categoryGameshow.isSelected());
         }catch(Exception e){
             action.swipeByElements(category3, category1);
-            assertFalse(categoryWebinar.isSelected());
+            assertFalse(categoryGameshow.isSelected());
         }
         System.out.println("Category has been selected correctly");
     }
