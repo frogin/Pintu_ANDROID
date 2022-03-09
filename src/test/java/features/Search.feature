@@ -48,7 +48,7 @@ Feature: Search Feature
   @Search @Staging
   Scenario: Checking search for movies
     Given I Go to search page
-    And   I type for "Ahok"
+    And   I type for "Neysha"
     Then  I should see in Movies column
 
   @Search @Staging
@@ -61,7 +61,7 @@ Feature: Search Feature
   @Search @Staging
   Scenario: Verify direction after click movies should going to movie detail
     Given I Go to search page
-    And   I type for "Ahok"
+    And   I type for "Neysha"
     Then  I should see in Movies column
     Then  I click to open movie detail
 

@@ -42,7 +42,7 @@ public class ProfileStep extends BaseUtil {
 
 
     @Then("I see all upcoming and recorded event")
-    public void iSeeAllUpcomingAndRecordedEvent() {
+    public void iSeeAllUpcomingAndRecordedEvent() throws InterruptedException{
         ProfilePage page = new ProfilePage(driver);
         page.checkUpcomingAndRecordedEvent();
     }

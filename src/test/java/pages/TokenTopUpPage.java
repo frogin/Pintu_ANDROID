@@ -25,7 +25,7 @@ public class TokenTopUpPage extends BaseUtil {
     public MobileElement insufficientAlert;
     @AndroidFindBy(id = "ll_button_container")
     public MobileElement insufficientTopupButton;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Itadakimas!']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ganbatte']")
     public MobileElement VGitemMurah;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Teddy']")
     public MobileElement VGitemMahal;

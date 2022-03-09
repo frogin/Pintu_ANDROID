@@ -12,6 +12,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class LivePage extends BaseUtil {
 //test aja
@@ -448,6 +450,14 @@ public class LivePage extends BaseUtil {
 
     @AndroidFindBy(id = "tv_title")
     public MobileElement btnSendVG;
+
+    @AndroidFindBy(id = "vw_gradient_top")
+    public MobileElement gradientTop;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@index='1']")
+    public MobileElement category1;
+    @AndroidFindBy(xpath = "//android.widget.Button[@index='3']")
+    public MobileElement category3;
 
     public void checkBannerPopUp() {
         if (driver.getPageSource().contains(PopUpBanner)){
@@ -891,6 +901,15 @@ public class LivePage extends BaseUtil {
         txtForYou.click();
         Thread.sleep(2000);
         String title1 = infoTitle.getText();
+        while (true){
+            driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
+            try{
+                txtGenreChitChat.isDisplayed();
+                break;
+            }catch (Exception e){
+                action.swipeByElements(category3, category1);
+            }
+        }
         txtGenreChitChat.click();
         Thread.sleep(2000);
         String title2 = infoTitle.getText();
@@ -939,6 +958,15 @@ public class LivePage extends BaseUtil {
 
     public void goToPerformerProfileAndVerify() throws InterruptedException {
         Thread.sleep(1500);
+        while (true){
+            driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
+            try{
+                txtGenreChitChat.isDisplayed();
+                break;
+            }catch (Exception e){
+                action.swipeByElements(category3, category1);
+            }
+        }
         txtGenreChitChat.click();
         txtGenreChitChat.click();
 //        btnClearFilter.click();
@@ -1001,8 +1029,12 @@ public class LivePage extends BaseUtil {
         Thread.sleep(1000);
         String followTextNEW2= btnFollowModal.getText();
         Thread.sleep(2000);
-        btnDismissCardGift.click();
-        String followTextNEW= btnFollow.getText();
+        try {
+            btnDismissCardGift.click();
+        }catch(Exception e){
+            gradientTop.click();
+        }
+        String followTextNEW = btnFollow.getText();
         Assert.assertEquals(followText,followText2);
     }
 
