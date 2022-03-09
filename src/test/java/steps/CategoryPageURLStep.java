@@ -27,13 +27,16 @@ public class CategoryPageURLStep extends BaseUtil {
     @Then("I see the watch now page with the selected category")
     public void i_see_the_watch_now_page_with_the_selected_category() {
         page.VerifyWatchNowOpened();
-        page.VerifySelectedCategory();
+//        page.VerifySelectedCategory();
+        page.checkCategoryTalkshow();
+        page.checkCategoryBeauty();
     }
 
     @Then("I see the scheduled page with the selected category")
     public void i_see_the_scheduled_page_with_the_selected_category() {
         page.VerifyScheduledOpened();
-        page.VerifySelectedCategory();
-//          page.ScrollToFind();
+//        page.VerifySelectedCategory();
+        page.checkCategoryTalkshow();
+        page.checkCategoryBeauty();
     }
 }

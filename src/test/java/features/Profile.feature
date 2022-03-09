@@ -26,7 +26,7 @@ Feature: Profile Feature
   @Profile
   Scenario: Verify if profile have many upcoming and recorded event
     Given I Go to search page
-    And   I type for "GoPlay"
+    And   I type for "Franky Kuncoro"
     And   I should see in Streamer column
     And   I click to open their profile
     Then  I see all upcoming and recorded event

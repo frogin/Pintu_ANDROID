@@ -81,17 +81,29 @@ public class CategoryPageURLPage extends BaseUtil {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    // Masih tahap finishing, belum digunakan
-    public void ScrollToFind(){
-        try {
-//            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textMatches(\"" + "Audition" + "\").instance(0));"));
-              driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)."
-                    + "resourceId(\"com.goplay.android:id/filter_recycler\"))"
-                    + ".setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"Kristen\"))");
-            System.out.println("berhasil cari");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("gagal cari");
+    public void checkCategoryTalkshow(){
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
+        while (true){
+            try{
+                categoryTalkshow.isDisplayed();
+                categoryTalkshow.isSelected();
+                break;
+            }catch (Exception e){
+                action.swipeByElements(category3, category1);
+            }
+        }
+    }
+
+    public void checkCategoryBeauty(){
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
+        while (true){
+            try{
+                categoryBeauty.isDisplayed();
+                categoryBeauty.isSelected();
+                break;
+            }catch (Exception e){
+                action.swipeByElements(category3, category1);
+            }
         }
     }
 

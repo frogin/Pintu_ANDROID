@@ -89,17 +89,18 @@ public class ProfilePage extends BaseUtil {
         action.checkTextCountains("Be sure to follow Aldo so you'll be the first to know once there's a new one.");
     }
 
-    public void checkUpcomingAndRecordedEvent(){
+    public void checkUpcomingAndRecordedEvent() throws InterruptedException{
         LivePage.btnProfileShare.isDisplayed();
         action.checkTextCountains("Upcoming live shows");
         action.checkTextCountains("Previous live shows");
         posterEvent.isDisplayed();
         btnSeeAll.click();
         LivePage.btnReminder.isDisplayed();
-        action.checkTextCountains("GoPlay's upcoming live shows");
+        action.checkTextCountains("Franky Kuncoro's upcoming live shows");
         posterEvent.click();
         LivePage.txtEventDetail.isDisplayed();
-        action.checkTextCountains("GoPlay");
+        action.checkTextCountains("Franky Kuncoro");
+        Thread.sleep(1500);
         LivePage.btnCloseEventDetail.click();
         btnCloseSeeAll.click();
         txtViewerCount.click();
