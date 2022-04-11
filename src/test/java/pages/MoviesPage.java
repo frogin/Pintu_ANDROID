@@ -206,7 +206,7 @@ public class MoviesPage extends BaseUtil {
         bannerMovie.click();
         LivePage.btnPlayNow.isDisplayed();
         action.androidBack();
-        action.scroToElement("Based on real events");
+        action.scroToElement("Relax for a while with these");
         bannerMovie.click();
         LivePage.btnPlayNow.isDisplayed();
         action.androidBack();

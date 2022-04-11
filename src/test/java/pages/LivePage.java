@@ -456,8 +456,13 @@ public class LivePage extends BaseUtil {
 
     @AndroidFindBy(xpath = "//android.widget.Button[@index='1']")
     public MobileElement category1;
-    @AndroidFindBy(xpath = "//android.widget.Button[@index='3']")
+    @AndroidFindBy(xpath = "//android.widget.Button[@index='2']")
     public MobileElement category3;
+
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Popular\"]/android.view.ViewGroup/android.widget.TextView")
+    public MobileElement VGcategory1;
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Music\"]/android.view.ViewGroup/android.widget.TextView")
+    public MobileElement VGcategory4;
 
     public void checkBannerPopUp() {
         if (driver.getPageSource().contains(PopUpBanner)){
@@ -647,16 +652,28 @@ public class LivePage extends BaseUtil {
     }
 
     public void checkSendGift()throws InterruptedException{
+        boolean a=true;
         String performerName= infoRecordedStreamerName.getText();
         btnGift.click();
         Thread.sleep(1000);
         action.checkTextCountains("Send virtual gift");
-//        action.checkTextCountains("All");
-//        action.checkTextCountains("Shout");
-//        action.checkTextCountains("Food");
-//        action.checkTextCountains("Next");
-//        action.checkTextCountains("Indonesia");
-//        action.checkTextCountains("Japan");
+        while (a==true){
+            driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
+            try {
+                action.checkTextCountains("Popular");
+                action.checkTextCountains("New");
+                action.checkTextCountains("Japan");
+                action.checkTextCountains("Music");
+                action.checkTextCountains("AZ Run");
+//                action.checkTextCountains("Valentine's");
+//                action.checkTextCountains("Food");
+                txtFood.isDisplayed();
+                break;
+            } catch (Exception e) {
+                action.swipeByElements(VGcategory4, VGcategory1);
+                a = false;
+            }
+        }
         action.checkTextCountains("Support " +performerName+ " by sending virtual gift to encourage them creating more content like this!");
 //        txtIndonsia.click();
 //        txtGoplayMask.click();
