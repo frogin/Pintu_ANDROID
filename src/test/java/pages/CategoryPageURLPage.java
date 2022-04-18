@@ -18,7 +18,7 @@ public class CategoryPageURLPage extends BaseUtil {
 
     @AndroidFindBy(xpath = "//android.widget.Button[@index='1']")
     public MobileElement category1;
-    @AndroidFindBy(xpath = "//android.widget.Button[@index='3']")
+    @AndroidFindBy(xpath = "//android.widget.Button[@index='2']")
     public MobileElement category3;
     @AndroidFindBy(id = "clear_filter_button")
     public MobileElement clearFilterButton;
