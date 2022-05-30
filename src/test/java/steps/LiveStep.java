@@ -39,7 +39,7 @@ public class LiveStep extends BaseUtil {
     }
 
     @And("I open performer profile to check all element")
-    public void iOpenPerformerProfileToCheckAllElement() {
+    public void iOpenPerformerProfileToCheckAllElement() throws InterruptedException {
         LivePage page = new LivePage(driver);
         page.checkPerformerProfileFromLive();
     }
