@@ -82,26 +82,28 @@ public class CategoryPageURLPage extends BaseUtil {
     }
 
     public void checkCategoryTalkshow(){
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
         while (true){
             try{
+                driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
                 categoryTalkshow.isDisplayed();
                 categoryTalkshow.isSelected();
                 break;
             }catch (Exception e){
+                driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
                 action.swipeByElements(category3, category1);
             }
         }
     }
 
     public void checkCategoryBeauty(){
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
         while (true){
             try{
+                driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
                 categoryBeauty.isDisplayed();
                 categoryBeauty.isSelected();
                 break;
             }catch (Exception e){
+                driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
                 action.swipeByElements(category3, category1);
             }
         }
@@ -121,7 +123,6 @@ public class CategoryPageURLPage extends BaseUtil {
     }
 
     public void VerifyWatchNowOpened(){
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         try {
             assertTrue(tabWatchNowEN.isSelected());
         }catch (Exception e){
@@ -129,11 +130,10 @@ public class CategoryPageURLPage extends BaseUtil {
         }
     }
     public void VerifyScheduledOpened(){
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         try {
-            assertTrue(tabScheduledEN.isSelected());
-        }catch (Exception e){
             assertTrue(tabScheduledID.isSelected());
+        }catch (Exception e){
+            assertTrue(tabScheduledEN.isSelected());
         }
     }
 

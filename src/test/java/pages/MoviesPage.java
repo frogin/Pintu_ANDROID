@@ -52,6 +52,9 @@ public class MoviesPage extends BaseUtil {
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Miracle: Letters To The President']")
     public static MobileElement imgMovieMiracle;
 
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Cerita Tentang Sinema di Sudut yang Lain']")
+    public static MobileElement imgCeritaTentangSinema;
+
     @AndroidFindBy(id = "button_contact_customer_care")
     public static MobileElement btnAddAccess;
 
@@ -107,12 +110,12 @@ public class MoviesPage extends BaseUtil {
     }
 
     public void checkMovieDetailPageWithFreeAll() {
-        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+"Top K-movies from tvN"+"\").instance(0))");
-        imgCeritaDariManggarai.click();
+        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+"GoPlay Exclusive"+"\").instance(0))");
+        imgCeritaTentangSinema.click();
         LivePage.btnPlayNow.isDisplayed();
         action.checkTextCountains("Share to IG");
-        action.checkTextCountains("Cast");
-        action.checkTextCountains("Director");
+//        action.checkTextCountains("Cast");
+//        action.checkTextCountains("Director");
         LivePage.btnPlayNow.click();
         Assert.assertFalse(action.checkPageSource("Share to IG"));
         action.androidBack();

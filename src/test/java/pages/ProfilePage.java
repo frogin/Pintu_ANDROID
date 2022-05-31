@@ -46,14 +46,13 @@ public class ProfilePage extends BaseUtil {
     }
 
     public void checkFollowFunctionality() {
-        String numberFollowerOld= LivePage.txtProfileNumberFollower.getText();
+//        String numberFollowerOld= LivePage.txtProfileNumberFollower.getText();
         LivePage.btnFollow.click();
-        String numberFollowerNew= LivePage.txtProfileNumberFollower.getText();
-        //Assert.assertNotEquals(numberFollowerOld,numberFollowerNew);
+//        String numberFollowerNew= LivePage.txtProfileNumberFollower.getText();
+//        Assert.assertNotEquals(numberFollowerOld,numberFollowerNew);
         action.checkTextCountains("Following");
         LivePage.btnReminder.isDisplayed();
         LivePage.btnReminder.isSelected();
-
     }
 
     public void checkUnfollowFunctionality() {
@@ -100,9 +99,9 @@ public class ProfilePage extends BaseUtil {
         posterEvent.click();
         LivePage.txtEventDetail.isDisplayed();
         action.checkTextCountains("Franky Kuncoro");
-        Thread.sleep(1500);
         LivePage.btnCloseEventDetail.click();
         btnCloseSeeAll.click();
+        Thread.sleep(1500);
         txtViewerCount.click();
         LivePage.btnFollow.isDisplayed();
         action.androidBack();
