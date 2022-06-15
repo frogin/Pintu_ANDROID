@@ -19,8 +19,6 @@ public class Hook extends BaseUtil{
     public void setUp() throws IOException, InterruptedException {
         System.out.println("HOOK BEFORE");
         setupAppium("localURL");
-        getPackage();
-        //driver.findElement(By.id("com.android.vending:id/0_resource_name_obfuscated")).click();
     }
 
 

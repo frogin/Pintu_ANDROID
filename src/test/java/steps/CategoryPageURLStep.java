@@ -14,29 +14,9 @@ public class CategoryPageURLStep extends BaseUtil {
         page.CategoryPageURLWithoutTag();
     }
 
-    @Given("I click category page URL with tag now")
-    public void i_click_category_page_url_with_tag_now() {
-        page.CategoryPageURLNow();
-    }
-
-    @Given("I click category page URL with tag upcoming")
-    public void i_click_category_page_url_with_tag_upcoming() {
-        page.CategoryPageURLUpcoming();
-    }
-
     @Then("I see the watch now page with the selected category")
     public void i_see_the_watch_now_page_with_the_selected_category() {
-        page.VerifyWatchNowOpened();
-//        page.VerifySelectedCategory();
-        page.checkCategoryTalkshow();
-        page.checkCategoryBeauty();
+        page.CategoryPageURLWithoutTag();
     }
 
-    @Then("I see the scheduled page with the selected category")
-    public void i_see_the_scheduled_page_with_the_selected_category() {
-        page.VerifyScheduledOpened();
-//        page.VerifySelectedCategory();
-        page.checkCategoryTalkshow();
-        page.checkCategoryBeauty();
-    }
 }

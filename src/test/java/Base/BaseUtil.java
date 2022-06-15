@@ -1,19 +1,10 @@
 package Base;
-import Base.AndroidCapabilityType;
-import Base.BaseData;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.LoginPage;
-import steps.LoginStep;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -57,7 +48,7 @@ public class BaseUtil {
                     capabilities.setCapability(MobileCapabilityType.NO_RESET, "true");
                     capabilities.setCapability(MobileCapabilityType.FULL_RESET, "false");
                     capabilities.setCapability(AndroidCapabilityType.AUTO_GRANT_PERMISSION, "true");
-                    capabilities.setCapability(MobileCapabilityType.APP, apk_Path);
+                    //capabilities.setCapability(MobileCapabilityType.APP, apk_Path);
                     driver = new AndroidDriver <MobileElement>(url, capabilities);
 
                     break;
@@ -76,9 +67,9 @@ public class BaseUtil {
                     capabilities.setCapability("os_version", "9.0");
 
                     // Set other BrowserStack capabilities
-                    capabilities.setCapability("project", "GOPLAY");
-                    capabilities.setCapability("build", "GOPLAY ANDROID");
-                    capabilities.setCapability("name", "Testcase Android");
+                    capabilities.setCapability("project", "");
+                    capabilities.setCapability("build", " ");
+                    capabilities.setCapability("name", "");
                     driver = new AndroidDriver<MobileElement>(
                             new URL("http://hub.browserstack.com/wd/hub"), capabilities);
 
@@ -102,24 +93,4 @@ public class BaseUtil {
         fileOut.close();
     }
 
-    public void getPackage() throws InterruptedException {
-        LoginPage page = new LoginPage(driver);
-
-        //driver.closeApp();
-        String getPackage = driver.getCurrentPackage();
-        System.out.println(getPackage);
-        packageName = getPackage+":id";
-        System.out.println(packageName);
-        if(getPackage.equals("com.goplay.android.dev")){
-            page.userDoLogin();
-        }
-        else{
-            System.out.println("RUNNING IN PROD");
-        }
-    }
-
-    public void uninstallApp() {
-
-        driver.removeApp(BaseData.ApplicationInformation.ANDROID_APPLICATION_PACKAGE);
-    }
 }
